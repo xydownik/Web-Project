@@ -6,10 +6,63 @@ footer {
 
 .brand-info {
     display: flex; 
-    justify-content: space-between;
+    flex-direction: row;
+}
+
+.about-us {
+    width: 50%; 
+    margin-left: 50px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 0px;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px; 
+
+}
+
+a {
+    margin-right: 50px; 
+    font-family: 'Space Grotesk', sans-serif;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+a:link {
+    color: white; 
+}
+a:visited {
+    color: white; 
+}
+a:active {
+    color: #1B1AE1; 
+}
+a:hover {
+    color: #7777c4; 
 }
 
 
+.footer_ab_us {
+    font-size: 20px;
+    font-family: 'Libre Franklin', sans-serif; 
+}
+
+.footer_socials {
+    margin-top: 30px;
+}
+
 .footer_socials, .copy {
-    color: #737373
+    color: #737373; 
+    font-size: 18px;
+    font-family: 'Libre Franklin', sans-serif; 
+}
+
+.copy {
+    margin-left: 50px; 
 }

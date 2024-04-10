@@ -4,10 +4,14 @@
     border-radius: 20px; 
     border: 10px; 
     border-color: black;
-    box-shadow: 1px 1px 1px 0px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
     display: inline-block; 
     margin-right: 40px; 
     vertical-align: top;
+}
+
+body {
+    height: 450px; 
 }
 
 .name {

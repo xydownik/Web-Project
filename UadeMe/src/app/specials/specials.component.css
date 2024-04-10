@@ -58,7 +58,7 @@ p{
 }
 
 button {
-    background-color: #28233E;
+    background-color: #1B1AE1;
     color: white; 
     font-weight: 200;
     border-radius: 10px; 
@@ -66,4 +66,11 @@ button {
     height: 35px; 
     border: 0; 
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+body {
+    height: 450px;
+    background: linear-gradient(0deg, #7979b5 0.2%, #F3F3F3);
+    margin-left: 0;
+    margin-bottom: 0;
 }
