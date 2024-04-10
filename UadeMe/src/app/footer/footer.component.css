@@ -1,0 +1,15 @@
+footer {
+    background-color: #28233E;
+    color: #FFFFFF; 
+    height: 300px; 
+}
+
+.brand-info {
+    display: flex; 
+    justify-content: space-between;
+}
+
+
+.footer_socials, .copy {
+    color: #737373
+}
