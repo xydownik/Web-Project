@@ -41,7 +41,7 @@ body {
 
 .unis {
     display: flex;
-  flex-direction: row;
+    flex-direction: row;
     margin-left: 80px;
     margin-top: 50px;
     vertical-align: top;
