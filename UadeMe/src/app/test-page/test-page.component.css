@@ -1,0 +1,93 @@
+.second_bg{
+  background-color: #262432;
+  height: 1000px;
+}
+
+.main_bg{
+  height: 1500px;
+}
+.slogan_photo{
+  display: flex;
+  flex-direction: row;
+  padding-top: 150px;
+}
+.text_holder{
+
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-align: right;
+  width: 50%;
+  margin: 100px 36px 36px 36px;
+
+}
+
+.img_holder{
+  margin:36px;
+}
+.photo_1{
+  height: 521px;
+}
+
+h1{
+  font-family: 'Marmelad', ui-rounded;
+  font-weight: 400;
+  font-size: 64px;
+  margin: 0;
+}
+.text1{
+  line-height: 72px;
+}
+h3{
+  font-weight: lighter;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.main_under{
+  line-height: 28px;
+  margin-bottom: 36px;
+}
+.time_limits{
+  display: inline-flex;
+  flex-direction: row;
+
+
+}
+.test_info {
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+  height: 130px;
+  color: black;
+  padding: 0;
+  float: left;
+  box-sizing: border-box;
+  width: 50%;
+  margin-top: 36px;
+}
+#test_info_2{
+  margin-right: 36px;
+
+}
+.container{
+  margin-top: 150px;
+  display: flex;
+  flex-direction: row;
+}
+.rect{
+  padding: 24px;
+  background-color: white;
+  color:black ;
+  float: left;
+  box-sizing: border-box;
+  width: 33%;
+  text-align: center;
+  opacity: 0.8;
+  margin: 0 36px;
+  border-radius: 20px;
+  font-size: 24px;
+}
+.logo{
+  width: 60px;
+  margin-bottom: 24px;
+}
