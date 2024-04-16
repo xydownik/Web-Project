@@ -1,76 +1,60 @@
-<div class="uni_container">
-  <div class="uni_item">
-    <!--надо добавить ngFor-->
-    <img class="uni_img" src="assets/images/KBTU.png">
-    <div class="text">
-      <div class="text1">
-        <div class="name_location">
-          <p class="p1">Kazakh-British Technical University</p>
-          <div class="location">
-            <img class="loc_img" src="/assets/images/location.png">
-            <p class="p4">Almaty</p>
-          </div>
-        </div>
-        <div class="unt_points">
-          <p class="p2">от 100 балл/грант<br>от 50 балл/платно</p>
-        </div>
-      </div>
-      <div class="text2">
-        <div class="fields">
-          <p class="p2">
-            Приемная комиссия<br>
-            Стоимость<br>
-            Тип ВУЗа
-          </p>
-        </div>
-        <div class="fields">
-          <p class="p3">
-            Номер<br>
-            от 2000000 KZT<br>
-            частный
-          </p>
-        </div>
-      </div>
-      <button class="uni_det" [routerLink]="['/home/universities/:id']" >Узнать больше →</button>
-    </div>
-  </div>
+<div>
+  <hr>
+  <section class="filter_bar">
+    <form class="search_tab">
+      <input type="text" class="search_input" placeholder="Filter..." #filter >
+      <img class="search_icon" src="/assets/images/search_icon.png" (click)="filterResults(filter.value)">
+    </form>
+    <div class="dropdown" >
+      <button class="dropdown-btn" >Специальность</button>
+      <div class="dropdown-content"  >
+        <button (click)="returnAll()">All</button>
+        <button *ngFor="let specialty of SpecialtyService.constList"
+                (click)="filterListBySpecialty(specialty)">{{specialty.name}}</button>
 
-<!--не забыть удалить -->
-  <div class="uni_item">
-    <!--надо добавить ngFor-->
-    <img class="uni_img" src="assets/images/KBTU.png">
-    <div class="text">
-      <div class="text1">
-        <div class="name_location">
-          <p class="p1">Kazakh-British Technical University</p>
-          <div class="location">
-            <img class="loc_img" src="/assets/images/location.png">
-            <p class="p4">Almaty</p>
-          </div>
-        </div>
-        <div class="unt_points">
-          <p class="p2">от 100 балл/грант<br>от 50 балл/платно</p>
-        </div>
+        <!-- Add more options as needed -->
       </div>
-      <div class="text2">
-        <div class="fields">
-          <p class="p2">
-            Приемная комиссия<br>
-            Стоимость<br>
-            Тип ВУЗа
-          </p>
-        </div>
-        <div class="fields">
-          <p class="p3">
-            Номер<br>
-            от 2000000 KZT<br>
-            частный
-          </p>
-        </div>
-      </div>
-      <button class="uni_det" [routerLink]="['/home/universities/:id']" >Узнать больше →</button>
+
     </div>
+    <div class="dropdown" >
+      <button class="dropdown-btn" >Университет</button>
+      <div class="dropdown-content"  >
+        <button (click)="returnAll()">All</button>
+        <button *ngFor="let uni of UniversityService.constList"
+                (click)="filterListByUniversity(uni.name)">{{uni.name}}</button>
+
+        <!-- Add more options as needed -->
+      </div>
+
+    </div>
+    <div class="dropdown" >
+      <button class="dropdown-btn" >Город</button>
+      <div class="dropdown-content"  >
+        <button (click)="returnAll()">All</button>
+        <button *ngFor="let city of CityService.constList"
+                (click)="filterListByCity(city)">{{city.city}}</button>
+
+        <!-- Add more options as needed -->
+      </div>
+
+    </div>
+    <div class="dropdown" >
+      <button class="dropdown-btn" >Сортировать</button>
+      <div class="dropdown-content"  >
+        <button (click)="returnAll()">All</button>
+        <button *ngFor="let item of sortByList"
+                (click)="sortBy(item)">{{item}}</button>
+
+        <!-- Add more options as needed -->
+      </div>
+
+    </div>
+
+  </section>
+  <div class="uni_container">
+    <app-uni-item *ngFor="let uni of unis" [university]="uni"></app-uni-item>
   </div>
 </div>
+<app-footer></app-footer>
 
 

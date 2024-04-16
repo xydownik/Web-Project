@@ -1,31 +1,21 @@
-export class Specialty {
+export interface Specialty {
   id: number
   name: string
   grants: number
-  description:string
-  disciplines: string[]
+  description: string
+  disciplines: Discipline[]
   eduPrograms: number
   demand: string
   unisNum: number
   general: number
-  quota:number
-  constructor(id:number, name:string, grants:number,
-              description: string, disciplines: string[],
-              eduPrograms: number, demand:string, unisNum:number, general:number, quota: number) {
-    this.id = id
-    this.name = name
-    this.description = description
-    this.grants = grants
-    this.disciplines = disciplines
-    this.eduPrograms = eduPrograms
-    this.demand = demand
-    this.unisNum = unisNum
-    this.general = general
-    this.quota=quota
-  }
-}
+  quota: number
+  photo: string
 
-export class University{
+
+
+
+}
+export interface University{
   id: number;
   name: string;
   photo:string;
@@ -33,23 +23,19 @@ export class University{
   phoneNumber: string
   cost: number
   uniType: string
-  location: string
+  location: City
   grantScore: number
   paidScore: number
-  constructor(id:number, name: string, photo: string, specialties: Specialty[],
-              phoneNumber: string, cost: number, uniType: string, location: string,
-              grantScore: number, paidScore: number) {
-    this.id = id;
-    this.name = name;
-    this.photo = photo
-    this.specialties = specialties
-    this.phoneNumber = phoneNumber
-    this.cost = cost
-    this.location = location
-    this.uniType = uniType
-    this.grantScore = grantScore
-    this.paidScore = paidScore
+  address: string
 
+}
 
-  }
+export interface Discipline{
+  id: number
+  name: string
+}
+
+export interface City{
+  id: number
+  city: string
 }

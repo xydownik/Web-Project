@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: right;
+  margin: 20px 10px 20px 10px;
+  height:50px;
+  width: 140px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 140px;
+  max-height: 100px;
+  overflow-y : scroll;
+  overflow-x: hidden;
+  z-index: 1;
+  border: solid 1px #ABB7C2;
+}
+
+.dropdown-content button {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+  width: 140px;
+  background-color: white;
+  border: none;
+
+}
+
+.dropdown-content button:hover {
+  background-color: #ABB7C2;
+  outline: none;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+
+
+}
+
+/* Optional: Style the button */
+.dropdown-btn {
+  width: inherit;
+  background-color: white;
+  border: solid 2px black;
+  border-radius: 10px;
+  color: black;
+  padding: 10px 20px;
+  cursor: pointer;
+  height: 50px;
+}
+.dropdown-btn:hover{
+  background-color: #28233E;
+  color: white;
+}
+
+

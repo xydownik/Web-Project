@@ -1,108 +1,61 @@
-<div class="spec_container">
-  <div class="spec_item">
-    <!--надо добавить ngFor-->
-    <img class="spec_img" src="assets/images/IT.png">
-    <div class="text">
-      <div class="text1">
-        <div class="name_subjects">
-          <p class="p1">Информационные технологии</p>
-          <div class="subjects">
-            <p class="p4">🕮 информатика / математика</p>
-          </div>
-        </div>
-        <div class="unt_points">
-          <p class="p2">от 96 проходной балл/общий<br>от 63 проходной балл/квота</p>
-        </div>
-      </div>
-      <div class="text2">
-        <div class="fields">
-          <p class="p2">
-            246<br>
-            72<br>
-            10103<br>
-            высокий
-          </p>
-        </div>
-        <div class="fields">
-          <p class="p3">
-            программ обучения<br>
-            ВУЗа в Казахстане<br>
-            грантов в 2023 году<br>
-            спрос
-          </p>
-        </div>
+<div>
+  <hr>
+  <section class="filter_bar">
+    <form class="search_tab">
+      <input type="text" class="search_input" placeholder="Filter..." #filter >
+      <img class="search_icon" src="/assets/images/search_icon.png" (click)="filterResults(filter.value)">
+    </form>
+    <div class="dropdown" >
+      <button class="dropdown-btn" >Специальность</button>
+      <div class="dropdown-content"  >
+        <button (click)="returnAll()">All</button>
+        <button *ngFor="let specialty of SpecialtyService.constList"
+                (click)="filterListBySpecialty(specialty.name)">{{specialty.name}}</button>
 
-      </div>
-      <div class="accordion">
-        <button class="accordion-btn">Описание специальности 🛈</button>
-        <div class="accordion-content">
-          <p>"Информационно-коммуникационные технологии" фокусируется
-            на изучении разработки, применения и управления информационными
-            системами и технологиями. Обучение включает в себя изучение программирования,
-            сетевых технологий, баз данных, веб-разработки, кибербезопасности и других
-            аспектов информационной технологии. Выпускники этой специальности могут
-            работать в различных сферах, таких как разработка программного обеспечения,
-            администрирование сетей, информационная безопасность, интернет-маркетинг,
-            аналитика данных и др.</p>
-        </div>
-
+        <!-- Add more options as needed -->
       </div>
 
     </div>
-  </div>
-  <div class="spec_item">
-    <!--надо добавить ngFor-->
-    <img class="spec_img" src="assets/images/IT.png">
-    <div class="text">
-      <div class="text1">
-        <div class="name_subjects">
-          <p class="p1">Информационные технологии</p>
-          <div class="subjects">
-            <p class="p4">🕮 информатика / математика</p>
-          </div>
-        </div>
-        <div class="unt_points">
-          <p class="p2">от 96 проходной балл/общий<br>от 63 проходной балл/квота</p>
-        </div>
-      </div>
-      <div class="text2">
-        <div class="fields">
-          <p class="p2">
-            246<br>
-            72<br>
-            10103<br>
-            высокий
-          </p>
-        </div>
-        <div class="fields">
-          <p class="p3">
-            программ обучения<br>
-            ВУЗа в Казахстане<br>
-            грантов в 2023 году<br>
-            спрос
-          </p>
-        </div>
+    <div class="dropdown" >
+      <button class="dropdown-btn" >Университет</button>
+      <div class="dropdown-content"  >
+        <button (click)="returnAll()">All</button>
+        <button *ngFor="let uni of UniversityService.constList"
+                (click)="filterListByUniversity(uni.name)">{{uni.name}}</button>
 
-      </div>
-      <div class="accordion">
-        <button class="accordion-btn">Описание специальности 🛈</button>
-        <div class="accordion-content">
-          <p>"Информационно-коммуникационные технологии" фокусируется
-            на изучении разработки, применения и управления информационными
-            системами и технологиями. Обучение включает в себя изучение программирования,
-            сетевых технологий, баз данных, веб-разработки, кибербезопасности и других
-            аспектов информационной технологии. Выпускники этой специальности могут
-            работать в различных сферах, таких как разработка программного обеспечения,
-            администрирование сетей, информационная безопасность, интернет-маркетинг,
-            аналитика данных и др.</p>
-        </div>
-
+        <!-- Add more options as needed -->
       </div>
 
     </div>
-  </div>
-  <!--не забыть удалить -->
+    <div class="dropdown" >
+      <button class="dropdown-btn" >Предметы</button>
+      <div class="dropdown-content"  >
+        <button (click)="returnAll()">All</button>
+        <button *ngFor="let disc of DisciplineService.constList"
+                (click)="filterListByDiscipline(disc)">{{disc.name}}</button>
+
+        <!-- Add more options as needed -->
+      </div>
+
+    </div>
+    <div class="dropdown" >
+      <button class="dropdown-btn" >Сортировать</button>
+      <div class="dropdown-content"  >
+        <button (click)="returnAll()">All</button>
+        <button *ngFor="let item of sortByList"
+                (click)="sortBy(item)">{{item}}</button>
+
+        <!-- Add more options as needed -->
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="result_container">
+    <app-specialty-item *ngFor="let specialty of specialtyList"
+                        [specialty]="specialty"></app-specialty-item>
+  </section>
 
 </div>
-
-
+<app-footer></app-footer>
