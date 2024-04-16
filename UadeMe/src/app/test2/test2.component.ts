@@ -12,7 +12,7 @@ import {Test} from "../test";
     NgForOf
   ],
   templateUrl: './test2.component.html',
-  styleUrl: './test2.component.css'
+  styleUrls: ['./test2.component.css', '.././test1/test1.component.css']
 })
 export class Test2Component {
 

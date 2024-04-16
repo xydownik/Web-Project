@@ -1,7 +1,7 @@
 
-<body>
+<body class="main">
 
-<main>
+<main >
 
   <div class="test">
 
@@ -24,6 +24,7 @@
           <div *ngFor="let variant of test.variants[currentQuestionIndex]; let i = index"
                [ngClass]="{'selected': (i === 0 && firstCardStatus) || (i === 1 && secondCardStatus)}"
                class="card" (click)="chooseCard(i)">
+            <img src="assets/images/polygon.png">
             <p class="card-number">{{ (currentQuestionIndex + 1) * 2 - 1 + i }}</p>
             <h3>{{variant.answer}}</h3>
             <p>{{variant.text}}</p>

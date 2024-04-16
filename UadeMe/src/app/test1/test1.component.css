@@ -15,6 +15,7 @@ div.test {
   background: white;
   width: 1000px;
   padding: 30px 200px 30px 30px;
+  border-radius: 20px;
 }
 
 .progress-bar {
@@ -108,7 +109,7 @@ button:active {
   position: relative;
   overflow: hidden;
   border: 1px solid #18181a;
-  color: #18181a;
+  border-radius: 10px;
   display: inline-block;
   font-size: 15px;
   line-height: 15px;

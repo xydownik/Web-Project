@@ -1,7 +1,21 @@
 body{
   margin: 0;
+  font-family: 'Marmelad', sans-serif;
 }
-
+h2{
+  font-weight: lighter;
+}
+.main{
+  background: linear-gradient(180deg, #7979b5 0.2%, #F3F3F3);
+  filter: brightness(80%), saturate(90%);
+  height: 1000px;
+  display: block;
+  width: 100%;
+  margin-left: 0;
+}
+button{
+  cursor: pointer;
+}
 .dropdown {
   position: relative;
   display: inline-block;

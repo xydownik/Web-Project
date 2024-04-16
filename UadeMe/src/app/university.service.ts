@@ -1,6 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {catchError, Observable} from "rxjs";
 import {Specialty, University} from "./models";
 import {SpecialtyService} from "./specialty.service";
 import {CityService} from "./city.service";
@@ -47,6 +47,13 @@ export class UniversityService{
     return UniversityService.constList
   }
 
+  getUniversity(id: number){
+    return this.httpClient.get<University>(`${this.BASE_URl+id}`).pipe(
+      catchError(error => {
+        console.error('Error fetching movie details:', error);
+        throw 'Error fetching movie details';
+      }))
+  }
   updateUniversity(uni: University){
     return this.httpClient.put<University>(this.BASE_URl, uni)
   }

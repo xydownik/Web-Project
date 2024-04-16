@@ -14,7 +14,7 @@ import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
     NgClass
   ],
   templateUrl: './test3.component.html',
-  styleUrl: './test3.component.css'
+  styleUrls: ['./test3.component.css','.././test1/test1.component.css']
 })
 export class Test3Component {
 

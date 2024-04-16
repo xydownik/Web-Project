@@ -74,8 +74,11 @@ p{
   font-weight: bold;
 }
 .accordion-content {
-  display: none;
-  margin: 12px;
+  display: block;
+  margin: 20px 0 20px 0;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .accordion-btn {
@@ -93,8 +96,8 @@ p{
 .accordion-btn:hover{
   color: skyblue;
 }
-.accordion-btn.active, .accordion{
-  background-color: #ddd;
-  border-radius: 20px;
-  margin-bottom: 12px;
-}
+/*.accordion-btn.active, .accordion{*/
+/*  background-color: #ddd;*/
+/*  border-radius: 20px;*/
+/*  margin-bottom: 12px;*/
+/*}*/

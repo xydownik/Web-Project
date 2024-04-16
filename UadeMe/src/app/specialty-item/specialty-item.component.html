@@ -32,9 +32,11 @@
       </div>
 
     </div>
+
+
     <div class="accordion">
-      <button class="accordion-btn">Описание специальности 🛈</button>
-      <div class="accordion-content">
+      <button (click)="toggle()" class="accordion-btn">Описание специальности 🛈</button>
+      <div *ngIf="isActive" class="accordion-content">
         <p>{{specialty.description}}</p>
       </div>
 

@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {TestStatusService} from "../test-status.service";
 import {NgIf} from "@angular/common";
+import {FooterComponent} from "../footer/footer.component";
 
 @Component({
   selector: 'app-tests',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    FooterComponent
   ],
   templateUrl: './tests.component.html',
   styleUrl: './tests.component.css'
