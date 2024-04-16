@@ -24,7 +24,7 @@
         <p>{{ currentQuestion }}</p>
         <div class="answers">
           <button *ngFor="let variant of test.variants[currentQuestionIndex]"
-                  (click)="answerQuestion(variant.text.toString() == 'Да')">{{variant.text}}</button>
+                  (click)="answerQuestion(variant.text.toString() == 'Да', variant.answer.toString())">{{variant.text}}</button>
         </div>
       </div>
 
