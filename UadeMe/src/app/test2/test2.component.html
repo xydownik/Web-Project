@@ -22,7 +22,7 @@
         <h3>Вопрос {{ answeredQuestionsCount }} / {{totalQuestionsCount}}</h3>
         <p>{{ currentQuestion }}</p>
         <div class="variants" *ngFor="let variant of test.variants[currentQuestionIndex]">
-          <span>{{variant.answer}})</span>
+          <span>{{filterLetters(variant.answer.toString())}})</span>
           <span class="variant" (click)="answerQuestion(variant.answer.toString())">{{variant.text}}</span>
         </div>
       </div>
