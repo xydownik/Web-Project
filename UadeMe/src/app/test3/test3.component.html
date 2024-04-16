@@ -1,0 +1,46 @@
+
+<body>
+
+<main>
+
+  <div class="test">
+
+    <h1>Карточки Качеств</h1>
+
+    <div *ngIf="!isTestStarted" class="description">
+      <h2>
+        Для того, чтобы определить свои профессиональные склонности, выберите одну из двух карточек.
+      </h2>
+      <button (click)="startQuiz()" class="start-button" role="button"><span class="text">Начать тест</span><span>Поехали!</span></button>
+    </div>
+
+    <div *ngIf="isTestStarted">
+
+      <h2 *ngIf="isTestCompleted">Тест завершен</h2>
+
+      <div class="question" *ngIf="!isTestCompleted">
+        <p class="question-text">{{ currentQuestion }}</p>
+        <div class="variants">
+          <div *ngFor="let variant of test.variants[currentQuestionIndex]; let i = index"
+               [ngClass]="{'selected': (i === 0 && firstCardStatus) || (i === 1 && secondCardStatus)}"
+               class="card" (click)="chooseCard(i)">
+            <p class="card-number">{{ (currentQuestionIndex + 1) * 2 - 1 + i }}</p>
+            <h3>{{variant.answer}}</h3>
+            <p>{{variant.text}}</p>
+          </div>
+        </div>
+        <button class="next" (click)="answerQuestion()">Далее</button>
+      </div>
+
+      <div *ngIf="!isTestCompleted" class="progress-bar">
+        <div class="progress-completed" [style.width.%]="calculateProgress()"></div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</main>
+
+</body>

@@ -1,0 +1,88 @@
+/* styles.css */
+
+
+
+header {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.card-container {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 230px;
+  height: 280px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card:hover {
+  /*background-color: #f0f0f0;*/
+  border-color: lightskyblue;
+}
+
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.card p {
+  margin-top: -300px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.complete, .not-complete {
+  margin-top: auto;
+}
+
+.complete {
+  color: green;
+}
+
+.not-complete {
+  color: indianred;
+}
+
+
+.progress {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+}
+
+.progress-bar {
+  align-self: center;
+  width: 60%;
+  background-color: #ddd;
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.progress-completed {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+}

@@ -1,0 +1,34 @@
+<header>
+  <h1>Откройте дверь в будущее, где ваши таланты расцветут</h1>
+</header>
+
+
+
+<div class="card-container">
+  <div class="card" (click)="navigateToTest(1)">
+    <img src="favicon.ico" alt="Test 1">
+    <p>Тест на профориентацию по методике Е.А. Климова</p>
+    <p class="complete" *ngIf="isTestCompleted('test1')">Завершен</p>
+    <p class="not-complete" *ngIf="!isTestCompleted('test1')">Не завершен</p>
+  </div>
+  <div class="card" (click)="navigateToTest(2)">
+    <img src="favicon.ico" alt="Test 2">
+    <p>Определение профессиональных склонностей л. Йовайши</p>
+    <p class="complete" *ngIf="isTestCompleted('test2')">Завершен</p>
+    <p class="not-complete" *ngIf="!isTestCompleted('test2')">Не завершен</p>
+  </div>
+  <div class="card" (click)="navigateToTest(3)">
+    <img src="favicon.ico" alt="Test 3">
+    <p>Карточки качеств</p>
+    <p class="complete" *ngIf="isTestCompleted('test3')">Завершен</p>
+    <p class="not-complete" *ngIf="!isTestCompleted('test3')">Не завершен</p>
+  </div>
+</div>
+
+
+<div class="progress">
+  <p>Завершите все 3 теста</p>
+  <div class="progress-bar">
+    <div class="progress-completed" [style.width.%]="calculateProgress()"></div>
+  </div>
+</div>
