@@ -10,6 +10,6 @@ class TestListByTypeAPIView(APIView):
     serializer_class = TestSerializer
 
     def get(self, request, test_type):
-        tests = Test.objects.filter(test_type=test_type)
-        serializer = self.serializer_class(tests[0])
+        test = Test.objects.get_by_test_type(test_type=test_type)
+        serializer = self.serializer_class(test)
         return Response(serializer.data)
