@@ -9,7 +9,7 @@ class TestManager(models.Manager):
 
 class Test(models.Model):
 
-    objects = TestManager
+    objects = TestManager()
 
     TEST_TYPES = [
         ('test1', 'Тест 1'),
