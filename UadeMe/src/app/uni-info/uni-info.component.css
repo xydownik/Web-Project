@@ -1,0 +1,60 @@
+
+.uni_head{
+  padding-top: 60px;
+  text-align: center;
+  vertical-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+
+}
+.uni_name {
+  font-family: 'Marmelad', sans-serif;
+  font-size: 30px;
+  width: 70%;
+  margin: 50px;
+  text-align: center;
+  position: absolute;
+  color: black;
+  background-color: #F3F3F3;
+  opacity: 0.7;
+  border-radius: 20px;
+
+}
+.photo{
+
+  background-color: #F3F3F3;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 1300px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.bg{
+  width: 100%;
+  height: 1000px;
+  position: absolute;
+  opacity: 0.5;
+  background-color: #18181a;
+  border-radius: 20px;
+
+}
+.main_img{
+  width: 100%;
+  height: 1000px;
+  border-radius: 20px ;
+  border-color: white;
+  border-width: thick;
+  margin: 0;
+}
+
+h3{
+  font-size: 28px;
+}
+
+
+

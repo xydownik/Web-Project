@@ -4,12 +4,13 @@
 }
 
 .main_bg{
-  height: 1500px;
+  height: 1300px;
+  background-color: #F3F3F3;
 }
 .slogan_photo{
   display: flex;
   flex-direction: row;
-  padding-top: 150px;
+  padding-top: 50px;
 }
 .text_holder{
 
@@ -70,7 +71,7 @@ h3{
 
 }
 .container{
-  margin-top: 150px;
+  margin-top: 250px;
   display: flex;
   flex-direction: row;
 }
@@ -90,4 +91,21 @@ h3{
 .logo{
   width: 60px;
   margin-bottom: 24px;
+}
+.button_1{
+  margin: 36px;
+  text-align: center;
+}
+.test_button{
+  background-color: #1B1AE1;
+  border-radius: 20px;
+  height: 50px;
+  width: 300px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+}
+.test_button:hover{
+  background-color: skyblue;
 }

@@ -1,0 +1,41 @@
+
+<body class="main">
+
+<main>
+
+  <div class="test">
+
+    <h1>Дифференциально диагностический опросник (Тест Климова)</h1>
+
+    <div *ngIf="!isTestStarted" class="description">
+      <h2>
+        Предлагаем вам 20 пар утверждений. Внимательно прочитав оба утверждения, выберите то, которое больше
+        соответствует вашему желанию. Выбор нужно сделать в каждой паре утверждений.
+      </h2>
+      <button (click)="startQuiz()" class="start-button" role="button"><span class="text">Начать тест</span><span>Поехали!</span></button>
+    </div>
+
+    <div *ngIf="isTestStarted">
+
+      <h2 *ngIf="isTestCompleted">Тест завершен</h2>
+
+      <div class="question" *ngIf="!isTestCompleted">
+        <h3>Вопрос {{ answeredQuestionsCount }} / {{totalQuestionsCount}}</h3>
+        <p>{{ currentQuestion }}</p>
+        <div class="answers">
+          <button *ngFor="let variant of test.variants[currentQuestionIndex]"
+                  (click)="answerQuestion(variant.text.toString() == 'Да', variant.answer.toString())">{{variant.text}}</button>
+        </div>
+      </div>
+
+      <div *ngIf="!isTestCompleted" class="progress-bar">
+        <div class="progress-completed" [style.width.%]="calculateProgress()"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+</body>

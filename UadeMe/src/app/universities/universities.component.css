@@ -1,22 +1,22 @@
 .uni {
     height: 260px;
-    width: 280px; 
-    border-radius: 20px; 
-    border: 10px; 
+    width: 280px;
+    border-radius: 20px;
+    border: 10px;
     border-color: black;
     box-shadow: 0 4px 6px rgba(0,0,0,0.5);
-    display: inline-block; 
-    margin-right: 40px; 
+    display: inline-block;
+    margin-right: 40px;
     vertical-align: top;
 }
 
 body {
-    height: 400px; 
+    height: 400px;
 }
 
 .name {
     font-family: 'Libre Franklin', sans-serif;
-    font-size: 18px; 
+    font-size: 18px;
     text-align: center;
 }
 
@@ -26,52 +26,53 @@ body {
 }
 
 .img img {
-    display: block; 
-    width: 100%; 
-    height: auto; 
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .img p {
     position: absolute;
-    bottom: 10px; 
-    left: 10px; 
-    color: white; 
+    bottom: 10px;
+    left: 10px;
+    color: white;
     font-family: 'Libre Franklin', sans-serif;
 }
 
 .unis {
-    display: block; 
-    margin-left: 80px; 
-    margin-top: 50px; 
+    display: flex;
+    flex-direction: row;
+    margin-left: 80px;
+    margin-top: 50px;
     vertical-align: top;
 }
 
 h2 {
-    font-family: 'Marmelad', sans-serif; 
+    font-family: 'Marmelad', sans-serif;
     font-weight: 300;
     font-size: 40px;
-    color: #28233E; 
+    color: #28233E;
     margin-left: 40px;
 }
 
 .button {
     height: 260px;
-    width: 280px; 
-    border-radius: 20px; 
-    border: 10px; 
+    width: 280px;
+    border-radius: 20px;
+    border: 10px;
     border-color: black;
     box-shadow: 1px 1px 1px 0px;
-    display: inline-block; 
-    margin-right: 40px; 
+    display: inline-block;
+    margin-right: 40px;
     background-color: #28233E;
 }
 
 button {
-    background-color: #28233E; 
-    color: white; 
-    width: 100%; 
+    background-color: #28233E;
+    color: white;
+    width: 100%;
     font-size: 32px;
     margin-top: 60px;
-    border: 0; 
+    border: 0;
     text-align: center;
 }

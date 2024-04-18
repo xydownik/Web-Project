@@ -1,43 +1,43 @@
 .brand-name {
-    background-color:#FFFFFF; 
+    background-color:#FFFFFF;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; 
+    padding: 10px 20px;
 }
 
 .tabs {
-    margin-left: 100px; 
+    margin-left: 100px;
     padding-right: 50px;
 }
 
 a {
-    margin-right: 50px; 
+    margin-right: 50px;
     font-family: 'Inter', sans-serif;
     text-decoration: none;
     font-size: 18px;
 }
 
 a:link {
-    color: black; 
+    color: black;
 }
 a:visited {
-    color: black; 
+    color: black;
 }
 a:active {
-    color: #1B1AE1; 
+    color: #1B1AE1;
 }
 a:hover {
-    color: #1B1AE1; 
+    color: #1B1AE1;
 }
 
 body {
-        display: flex; 
+        display: flex;
         flex-direction: column;
         margin: 0;
-        width: 100%; 
+        width: 100%;
         background-color: #F3F3F3;
-        height: 20px;
+
 }
 
 .name_logo {

@@ -1,0 +1,40 @@
+
+  <div class="uni_item">
+    <img class="uni_img" [src]="university.photo">
+    <div class="text">
+      <div class="text1">
+        <div class="name_location">
+          <p class="p1">{{ university.name }}</p>
+          <div class="location">
+            <img class="loc_img" src="/assets/images/location.png">
+            <p class="p4">{{ university.location.city }}, {{university.address}}</p>
+          </div>
+        </div>
+        <div class="unt_points">
+          <p class="p2">от {{ university.grantScore }} балл/грант<br>
+            от {{ university.paidScore }} балл/платно</p>
+        </div>
+      </div>
+      <div class="text2">
+        <div class="fields">
+          <p class="p2">
+            Приемная комиссия<br>
+            Стоимость<br>
+            Тип ВУЗа
+          </p>
+        </div>
+        <div class="fields">
+          <p class="p3">
+            {{ university.phoneNumber }}<br>
+            от {{ university.cost }} KZT<br>
+            {{ university.uniType }}
+          </p>
+        </div>
+      </div>
+      <button class="uni_det" [routerLink]="['/home/universities', university.id]" >Узнать больше →</button>
+    </div>
+  </div>
+
+
+
+

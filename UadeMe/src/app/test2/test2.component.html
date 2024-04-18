@@ -1,0 +1,41 @@
+
+<body class="main">
+
+<main>
+
+  <div class="test">
+
+    <h1>Тест Йовайши</h1>
+
+    <div *ngIf="!isTestStarted" class="description">
+      <h2>
+        Для того, чтобы определить свои профессиональные склонности, нажмите на один из трех вариантов – «а», «b» или «c».
+      </h2>
+      <button (click)="startQuiz()" class="start-button" role="button"><span class="text">Начать тест</span><span>Поехали!</span></button>
+    </div>
+
+    <div *ngIf="isTestStarted">
+
+      <h2 *ngIf="isTestCompleted">Тест завершен</h2>
+
+      <div class="question" *ngIf="!isTestCompleted">
+        <h3>Вопрос {{ answeredQuestionsCount }} / {{totalQuestionsCount}}</h3>
+        <p>{{ currentQuestion }}</p>
+        <div class="variants" *ngFor="let variant of test.variants[currentQuestionIndex]">
+          <span>{{filterLetters(variant.answer.toString())}})</span>
+          <span class="variant" (click)="answerQuestion(variant.answer.toString())">{{variant.text}}</span>
+        </div>
+      </div>
+
+      <div *ngIf="!isTestCompleted" class="progress-bar">
+        <div class="progress-completed" [style.width.%]="calculateProgress()"></div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</main>
+
+</body>

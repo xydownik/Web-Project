@@ -6,11 +6,11 @@
     </div>
     <nav class="tabs">
       <!-- href will be replaced with routerLink or with button with function goToPage-->
-      <a href = "https://angular.io/tutorial/first-app/first-app-lesson-02" class="tab"> Главная </a>
-      <a href = "https://angular.io/tutorial/first-app/first-app-lesson-02" class="tab"> Тесты </a>
-      <a href = "https://angular.io/tutorial/first-app/first-app-lesson-02" class="tab"> Консультация </a>
-      <a href = "https://angular.io/tutorial/first-app/first-app-lesson-02" class="tab"> Университеты </a>
-      <a href = "https://angular.io/tutorial/first-app/first-app-lesson-02" class="tab"> Специальности </a>
+      <a [routerLink]="['/home']" class="tab"> Главная </a>
+      <a [routerLink]="['/home/test-page']" class="tab"> Тесты </a>
+      <a [routerLink]="['/home/test-page']" class="tab"> Консультация </a>
+      <a [routerLink]="['/home/universities']" class="tab"> Университеты </a>
+      <a [routerLink]="['/home/specialties']" class="tab"> Специальности </a>
     </nav>
     <nav class = "rega">
       <a href = "https://angular.io/tutorial/first-app/first-app-lesson-02" class="tab"> Войти </a>

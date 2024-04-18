@@ -1,0 +1,32 @@
+.uni_container{
+  display: flex;
+  flex-direction: column;
+  background-color: #F3F3F3;
+}
+
+hr{
+  border: solid 1px #ABB7C2;
+}
+.search_tab{
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  margin: 20px 0 20px 36px ;
+  width: 70%
+}
+.search_input{
+  height: 50px;
+  padding: 0 8px;
+  border: solid 2px #ABB7C2;
+  border-radius: 10px;
+  width: 50%;
+}
+.search_icon{
+  width: 50px;
+}
+
+
+.filter_bar{
+  display: flex;
+  flex-direction: row;
+}
