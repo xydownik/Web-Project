@@ -8,6 +8,10 @@ import {TestsComponent} from "./tests/tests.component";
 import {Test3Component} from "./test3/test3.component";
 import {Test1Component} from "./test1/test1.component";
 import {Test2Component} from "./test2/test2.component";
+import {ConsultService} from "./consult.service";
+import {ConsultPageComponent} from "./consult-page/consult-page.component";
+import {RadarChartComponent} from "./radar-chart/radar-chart.component";
+import {TestResultsComponent} from "./test-results/test-results.component";
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent, title: 'Home'},
@@ -18,6 +22,8 @@ export const routes: Routes = [
   {path: 'home/test-page/tests/3', component: Test3Component, title: 'Test3'},
   {path: 'home/specialties', component: SpecialtiesComponent, title: 'Specialties'},
   {path: 'home/universities', component: UniListComponent, title: 'Universities'},
+  {path: 'home/consultation', component: ConsultPageComponent, title: 'Consultation'},
+  {path: 'home/tests/test-results', component: TestResultsComponent, title: 'Test Results'},
   {path: 'home/universities/:id', component: UniInfoComponent, title: 'University Information'},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 
