@@ -32,4 +32,8 @@ export class TestsComponent {
     return (completedTestsCount / 3) * 100;
   }
 
+  checkComplition(): boolean{
+    return this.isTestCompleted('test1') && this.isTestCompleted('test2') && this.isTestCompleted('test3')
+  }
+
 }
