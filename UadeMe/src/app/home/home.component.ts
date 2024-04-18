@@ -8,6 +8,7 @@ import {UniversitiesComponent} from "../universities/universities.component";
 import {WhyweComponent} from "../whywe/whywe.component";
 import {RouterModule} from "@angular/router";
 import {CommonModule} from "@angular/common";
+import { TestResultsComponent } from '../test-results/test-results.component';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,7 @@ import {CommonModule} from "@angular/common";
         SpecialsComponent,
         UniversitiesComponent,
         WhyweComponent,
+        TestResultsComponent
     ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

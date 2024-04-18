@@ -7,3 +7,5 @@ export interface Universities {
     specialties: string; 
     price: number; 
 }
+
+
