@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {TestStatusService} from "../test-status.service";
 import {NgIf} from "@angular/common";
 import {FooterComponent} from "../footer/footer.component";
+import {RadarChartComponent} from "../radar-chart/radar-chart.component";
 
 @Component({
   selector: 'app-tests',
   standalone: true,
   imports: [
     NgIf,
-    FooterComponent
+    FooterComponent,
+    RouterLink,
+    RadarChartComponent
   ],
   templateUrl: './tests.component.html',
   styleUrl: './tests.component.css'

@@ -39,7 +39,7 @@
   </div>
 
   <div *ngIf="checkComplition()" class="show-results">
-    <button>Посмотреть результаты</button>
+    <button [routerLink]="['/home/tests/test-results']">Посмотреть результаты</button>
   </div>
 
 </div>
