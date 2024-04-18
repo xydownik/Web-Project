@@ -31,11 +31,15 @@
   </div>
 
 
-  <div class="progress">
+  <div *ngIf="!checkComplition()" class="progress">
     <p>Завершите все 3 теста</p>
     <div class="progress-bar">
       <div class="progress-completed" [style.width.%]="calculateProgress()"></div>
     </div>
+  </div>
+
+  <div *ngIf="checkComplition()" class="show-results">
+    <button>Посмотреть результаты</button>
   </div>
 
 </div>
