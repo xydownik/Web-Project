@@ -1,0 +1,12 @@
+div {
+    width: 700px; 
+    height: 800px; 
+    visibility: visible;
+    display: block;
+}
+
+#radarChart {
+    position: relative;
+    vertical-align: top;
+}
+

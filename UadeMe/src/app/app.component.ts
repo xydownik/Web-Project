@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import {RouterModule, RouterOutlet} from '@angular/router';
 import { BeginComponent } from './begin/begin.component';
@@ -10,6 +11,9 @@ import { FooterComponent } from './footer/footer.component';
 import {TestPageComponent} from "./test-page/test-page.component";
 import {HomeComponent} from "./home/home.component";
 import {BrowserModule} from "@angular/platform-browser";
+import { TestResultsComponent } from './test-results/test-results.component';
+import { RadarChartComponent } from './radar-chart/radar-chart.component';
+
 
 @Component({
   selector: 'app-root',
@@ -25,7 +29,9 @@ import {BrowserModule} from "@angular/platform-browser";
     HeaderComponent,
     FooterComponent,
     TestPageComponent,
-    HomeComponent
+    HomeComponent, 
+    TestResultsComponent, 
+    RadarChartComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

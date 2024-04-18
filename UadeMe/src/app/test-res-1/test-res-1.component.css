@@ -1,0 +1,115 @@
+body {
+    display: flex; 
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.begin {
+    display: flex; 
+    flex-direction: row;
+    justify-content: left;
+}
+
+.numbered {
+    background-color: #CFCACA;
+    height: 50px; 
+    width: 50px; 
+    border-radius: 50%; 
+    text-align: center;
+    align-items: center;
+}
+
+.message {
+    display: block; 
+    align-self: top;
+}
+
+.message h3 {
+    font-family: 'Inter', sans-serif; 
+    font-weight: 400;
+    font-size: 25px; 
+    margin: 10px;
+}
+
+.order {
+    font-family: 'Inter', sans-serif; 
+    font-weight: 400;
+    font-size: 40px; 
+    color: white; 
+    margin: auto; 
+}
+
+.content {
+    display: flex;
+    flex-direction: row; 
+}
+
+.line {
+    margin-left: 25px;
+}
+
+body {
+    height: 650px; 
+}
+
+
+.content2 {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    height: 100%; 
+    margin-top: 0;
+    margin-left: 100px;
+}
+
+.batterys {
+    margin-top: 0px;
+    margin-left: 50px;
+    display: flex; 
+    flex-direction: column;
+}
+
+.battery {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px; 
+}
+
+.battery p {
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    margin-bottom: 0;
+    margin-left: 25px;
+   
+}
+
+.battery_in {
+    display: flex; 
+    flex-direction: row;
+    margin-top: 0;
+    height: 70px;
+}
+
+.battery_in img {
+    width: 45%; 
+}
+
+.battery_in h4 {
+    margin-top: 16px;
+    margin-left: 8px;
+    font-family: 'Inter', sans-serif; 
+    font-weight: 400;
+    font-size: 30px; 
+}
+
+.type {
+    display: flex;
+    margin-left: 40px;
+}
+
+
+.type2 {
+    height: 600px; 
+    margin-top: 50px;
+    margin-left: 0;
+}
+
