@@ -1,7 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Chart, registerables, RadarController }   from 'chart.js';
+import { Chart, registerables, RadarController, PointElement, LineElement, Filler}   from 'chart.js';
 import { TestRes2 } from '../test-res-2';import { AUTO_STYLE } from '@angular/animations';
-import { RadialLinearScale, ArcElement } from 'chart.js';
+import { RadialLinearScale, ArcElement, CommonElementOptions } from 'chart.js';
+
+
+
+Chart.register(RadialLinearScale, ArcElement, RadarController, PointElement, LineElement, Filler); 
 
 
 @Component({
@@ -31,6 +35,7 @@ export class RadarChartComponent implements OnInit {
   }
 
   createRadarChart(): void {
+
     this.radarChart = new Chart('radarChart', {
       type: 'radar', 
       data: {
@@ -38,21 +43,22 @@ export class RadarChartComponent implements OnInit {
         'ПЛАНОВО-ЭКОНОМИЧЕСКИЙ', 'ЭСТЕТИКА', 'ПРАКТИЧЕСКИЙ'],  
         datasets: [{
           label: this.chartData[0].username, 
+          fill: true, 
+          backgroundColor: 'rgba(255, 215, 0, 0.5)', 
           data: [this.chartData[0].people, this.chartData[0].extreme, 
                 this.chartData[0].research, this.chartData[0].economic, 
-              this.chartData[0].aesthetics, this.chartData[0].practice], 
-          fill: true, 
-          backgroundColor: ' rgba(0, 70, 124, 0.5)', 
-          borderColor: 'rgba(0, 70, 124)',
-          pointBackgroundColor:  'rgba(0, 70, 124) ',
+              this.chartData[0].aesthetics, this.chartData[0].practice],  
+          borderColor: 'rgb(255, 215, 0)',
+          pointBackgroundColor:  'rgb(255, 215, 0) ',
           pointBorderColor: '#fff',
           pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgba(255, 207, 77, 1)',
+          pointHoverBorderColor: 'rgba(0, 0, 0)',
         }]
       }, 
       options: {
         scales: {
           r: {
+         
             suggestedMin: 0, 
             suggestedMax: 8, 
             angleLines: {display:true,
@@ -69,7 +75,7 @@ export class RadarChartComponent implements OnInit {
               font: {
                 size: 14, 
               },
-              color: '#1B1AE1', 
+              color: '#CCAA00', 
             },
             
             grid: {
@@ -102,4 +108,6 @@ export class RadarChartComponent implements OnInit {
       }
     }); 
   }
-} 
+}
+
+
