@@ -39,3 +39,13 @@ export interface City{
   id: number
   city: string
 }
+
+export interface Consultant{
+  id: number,
+  name: string,
+  profession: string,
+  phone: number,
+  telegram: string
+  whatsApp: string,
+  mail: string
+}

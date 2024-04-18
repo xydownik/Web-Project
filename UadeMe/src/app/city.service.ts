@@ -21,17 +21,7 @@ export class CityService {
   ]
 
   constructor(private httpClient: HttpClient) { }
-  getDisciplines(): Observable<Discipline[]>{
-    return this.httpClient.get<Discipline[]>(`${this.BASE_URl}`)
-  }
-
-  updateDiscipline(uni: Discipline){
-    return this.httpClient.put<Discipline>(this.BASE_URl, uni)
-  }
-
-  deleteDiscipline(uniId: number){
-    return this.httpClient.delete<any>(`${this.BASE_URl}/${uniId}`);
-  }
-  ngOnInit(): void {
+  getCity(): Observable<City>{
+    return this.httpClient.get<City>(`${this.BASE_URl}`)
   }
 }
