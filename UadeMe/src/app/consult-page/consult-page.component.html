@@ -56,8 +56,10 @@
       <h1>Профориентация</h1>
     </div>
     <div class="results">
-      <div>NAme</div>
+      <app-consult-item *ngFor="let consultant of consultants"
+      [consult]="consultant"></app-consult-item>
     </div>
   </div>
 
 </div>
+<app-footer></app-footer>

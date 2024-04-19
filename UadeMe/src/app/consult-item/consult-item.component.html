@@ -1,0 +1,37 @@
+<div class="consultant_item" >
+  <div class="photo_consult">
+    <img [src]="consult.photo">
+  </div>
+  <div class="text-part">
+    <h3>{{consult.name}}</h3>
+    <p>{{consult.profession}}</p>
+
+    <app-rating [rating]="consult.rating"></app-rating>
+
+
+
+    <div class="accordion">
+      <button (click)="toggle()" class="accordion-btn">☏ Узнать номер</button>
+      <div *ngIf="isActive" class="accordion-content">
+        <p>{{consult.phone}}</p>
+        <div class="contacts" *ngIf="consult.mail != ''">
+          <img src="assets/images/mail.png">
+          <p>{{consult.mail}}</p>
+        </div>
+        <div class="contacts" *ngIf="consult.insta != ''">
+          <img src="assets/images/instagram.png">
+          <p>{{consult.insta}}</p>
+        </div>
+        <div class="contacts" *ngIf="consult.telegram != ''">
+          <img src="assets/images/telegram.png">
+          <p>{{consult.telegram}}</p>
+        </div>
+        <div class="contacts" *ngIf="consult.whatsApp != ''">
+          <img src="assets/images/whatsapp.png">
+          <p>{{consult.whatsApp}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
