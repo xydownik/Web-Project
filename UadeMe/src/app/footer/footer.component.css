@@ -1,16 +1,16 @@
 footer {
     background-color: #28233E;
-    color: #FFFFFF; 
-    height: 300px; 
+    color: #FFFFFF;
+    height: fit-content;
 }
 
 .brand-info {
-    display: flex; 
+    display: flex;
     flex-direction: row;
 }
 
 .about-us {
-    width: 50%; 
+    width: 50%;
     margin-left: 50px;
 }
 
@@ -23,34 +23,34 @@ footer {
 .socials {
     display: flex;
     flex-direction: column;
-    margin-left: 200px; 
+    margin-left: 200px;
 
 }
 
 a {
-    margin-right: 50px; 
+    margin-right: 50px;
     font-family: 'Space Grotesk', sans-serif;
     text-decoration: none;
     font-size: 16px;
 }
 
 a:link {
-    color: white; 
+    color: white;
 }
 a:visited {
-    color: white; 
+    color: white;
 }
 a:active {
-    color: #1B1AE1; 
+    color: #1B1AE1;
 }
 a:hover {
-    color: #7777c4; 
+    color: #7777c4;
 }
 
 
 .footer_ab_us {
     font-size: 20px;
-    font-family: 'Libre Franklin', sans-serif; 
+    font-family: 'Libre Franklin', sans-serif;
 }
 
 .footer_socials {
@@ -58,11 +58,69 @@ a:hover {
 }
 
 .footer_socials, .copy {
-    color: #737373; 
+    color: #737373;
     font-size: 18px;
-    font-family: 'Libre Franklin', sans-serif; 
+    font-family: 'Libre Franklin', sans-serif;
 }
 
 .copy {
-    margin-left: 50px; 
+    margin-left: 50px;
+  padding-bottom: 20px;
+}
+
+
+
+
+/* Общие стили для мобильных устройств */
+@media (max-width: 768px) {
+  .footer {
+    height: auto;
+    padding: 5% 2%; /* Adjust padding using percentages */
+  }
+  .brand-info {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-us {
+    width: 90%; /* Use percentage for width */
+    text-align: center; /* Center text */
+    margin: 5% auto; /* Use percentage for margin */
+  }
+  .footer-logo {
+    margin-top: 5%; /* Use percentage for margin */
+    width: 30%; /* Use percentage for width */
+    max-width: 100px; /* Set max-width for smaller screens */
+  }
+  .socials {
+    margin: 5% auto; /* Use percentage for margin */
+    text-align: center; /* Center social links */
+  }
+  .socials a {
+    margin: 3% 0; /* Use percentage for margin */
+    display: inline-block; /* Ensure links stay in line */
+  }
+  .copy {
+    margin: 5% auto; /* Use percentage for margin */
+    text-align: center; /* Center copyright text */
+  }
+}
+
+/* Дополнительные стили для маленьких экранов */
+@media (max-width: 480px) {
+  .about-us {
+    font-size: 14px; /* Decrease font size for smaller screens */
+  }
+  .footer-logo {
+    width: 40%; /* Adjust logo width using percentage */
+    max-width: 80px; /* Set max-width for smaller screens */
+  }
+  .socials a {
+    font-size: 12px; /* Decrease font size for links */
+  }
+  .copy {
+    font-size: 14px; /* Decrease font size for copyright text */
+  }
+  .footer_ab_us{
+    font-size: 16px;
+  }
 }
