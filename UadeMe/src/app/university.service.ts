@@ -9,7 +9,7 @@ import {CityService} from "./city.service";
   providedIn: 'root'
 })
 export class UniversityService{
-  BASE_URl = "https://jsonplaceholder.typicode.com/posts"
+  BASE_URl = "http://127.0.0.1:8000/api/universities/"
   constructor(private httpClient: HttpClient) { }
 
   static constList: University[] = [
@@ -46,19 +46,12 @@ export class UniversityService{
   getUniversities(){
     return UniversityService.constList
   }
-
-  getUniversity(id: number){
-    return this.httpClient.get<University>(`${this.BASE_URl+id}`).pipe(
-      catchError(error => {
-        console.error('Error fetching movie details:', error);
-        throw 'Error fetching movie details';
-      }))
-  }
-  updateUniversity(uni: University){
-    return this.httpClient.put<University>(this.BASE_URl, uni)
+  getUniversity(title: string){
+    return this.getUniversities().find(uni => uni.name.localeCompare(title))
   }
 
-  deleteUniversity(uniId: number){
-    return this.httpClient.delete<any>(`${this.BASE_URl}/${uniId}`);
+  getUniversityObs(id: number){
+    return this.httpClient.get<University>(`${this.BASE_URl}${id}`)
   }
+
 }

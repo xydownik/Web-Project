@@ -109,3 +109,247 @@ h3{
 .test_button:hover{
   background-color: skyblue;
 }
+
+/* Общие стили для мобильных устройств */
+@media (max-width: 768px) {
+  .slogan_photo {
+    flex-direction: column;
+    align-items: center;
+  }
+  .text_holder, .img_holder {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+  }
+  .time_limits {
+    flex-direction: column;
+    align-items: center;
+  }
+  .test_info, .rect {
+    width: 80%;
+    margin: 10px auto;
+    font-size: 18px;
+  }
+  .button_1 {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .test_button {
+    width: 80%;
+    font-size: 16px;
+  }
+  .photo_1 {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .second_bg{
+    background-color: #262432;
+    height: auto; /* Change to auto for adaptability */
+    padding: 20px; /* Add padding for better spacing */
+  }
+
+  .main_bg{
+    height: auto; /* Change to auto for adaptability */
+    background-color: #F3F3F3;
+    padding: 20px; /* Add padding for better spacing */
+  }
+
+  .slogan_photo{
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items to center */
+    justify-content: space-around; /* Distribute space around items */
+    padding: 20px 0; /* Add padding for better spacing */
+  }
+
+  .text_holder{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center; /* Center text for mobile */
+    width: 100%; /* Full width for mobile */
+    margin: 20px 0; /* Adjust margin for spacing */
+  }
+
+  .img_holder{
+    margin: 20px 0; /* Adjust margin for spacing */
+  }
+
+  .photo_1{
+    max-width: 100%; /* Ensure image doesn't overflow container */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  h1{
+    font-family: 'Marmelad', ui-rounded;
+    font-weight: 400;
+    font-size: 48px; /* Decrease font size for mobile */
+    margin: 10px 0; /* Adjust margin for spacing */
+  }
+
+  .text1{
+    line-height: 1.2; /* Adjust line height for readability */
+  }
+
+  h3{
+    font-weight: lighter;
+    font-family: 'Libre Franklin', sans-serif;
+    line-height: 1.4; /* Adjust line height for readability */
+    margin-bottom: 20px; /* Adjust margin for spacing */
+  }
+
+  .time_limits{
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items to center */
+    justify-content: space-around; /* Distribute space around items */
+    margin-top: 20px; /* Adjust margin for spacing */
+  }
+
+  .test_info, .rect{
+    width: 45%; /* Adjust width for spacing */
+    text-align: center; /* Center text for mobile */
+    margin: 10px 0; /* Adjust margin for spacing */
+    font-size: 16px; /* Adjust font size for mobile */
+  }
+
+  .button_1{
+    margin: 20px 0; /* Adjust margin for spacing */
+    text-align: center; /* Center text for mobile */
+  }
+
+  .test_button{
+    width: 80%; /* Adjust width for mobile */
+    font-size: 16px; /* Adjust font size for mobile */
+  }
+
+}
+
+/* Дополнительные стили для маленьких экранов */
+@media (max-width: 480px) {
+  .main_bg, .second_bg {
+    height: auto;
+  }
+  .text1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  .main_under {
+    margin-bottom: 10px;
+    line-height: 20px;
+  }
+  .time_limits, .container {
+    flex-direction: column;
+  }
+  .rect {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .photo_1 {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .second_bg{
+    background-color: #262432;
+    height: auto; /* Change to auto for adaptability */
+    padding: 20px; /* Add padding for better spacing */
+  }
+
+  .main_bg{
+    height: auto; /* Change to auto for adaptability */
+    background-color: #F3F3F3;
+    padding: 20px; /* Add padding for better spacing */
+  }
+
+  .slogan_photo{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align items to center */
+    justify-content: space-around; /* Distribute space around items */
+    padding: 20px 0; /* Add padding for better spacing */
+  }
+
+  .text_holder{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center; /* Center text for mobile */
+    width: 100%; /* Full width for mobile */
+    margin: 20px 0; /* Adjust margin for spacing */
+  }
+.text_holder h1{
+  font-size: 32px;
+}
+.text_holder h3{
+  font-size: 12px;
+}
+h2{
+  font-size: 20px;
+}
+  .img_holder{
+    margin: 20px 0; /* Adjust margin for spacing */
+  }
+
+  .photo_1{
+    max-width: 100%; /* Ensure image doesn't overflow container */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  h1{
+    font-family: 'Marmelad', ui-rounded;
+    font-weight: 400;
+    font-size: 32px; /* Decrease font size for mobile */
+    margin: 10px 0; /* Adjust margin for spacing */
+  }
+
+  .text1{
+    line-height: 1.2; /* Adjust line height for readability */
+  }
+
+  h3{
+    font-weight: lighter;
+    font-family: 'Libre Franklin', sans-serif;
+    line-height: 1.4; /* Adjust line height for readability */
+    margin-bottom: 12px; /* Adjust margin for spacing */
+  }
+
+  .time_limits{
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items to center */
+    justify-content: space-around; /* Distribute space around items */
+    margin-top: 20px; /* Adjust margin for spacing */
+  }
+
+  .test_info{
+    width: 45%; /* Adjust width for spacing */
+    text-align: center; /* Center text for mobile */
+    margin: 10px 0; /* Adjust margin for spacing */
+    font-size: 16px; /* Adjust font size for mobile */
+  }
+  .container{
+    flex-direction: column;
+    margin-top: 30px;
+    padding-left: 50px;
+  }
+  .rect{
+    width: 80%;
+  }
+
+  .button_1{
+    margin: 20px 0; /* Adjust margin for spacing */
+    text-align: center; /* Center text for mobile */
+  }
+
+  .test_button{
+    width: 80%; /* Adjust width for mobile */
+    font-size: 16px; /* Adjust font size for mobile */
+  }
+
+}
+

@@ -1,0 +1,102 @@
+.main2{
+  width: 100%;
+  background-color: #F3F3F3;
+  padding-bottom: 50px;
+
+}
+.start{
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+}
+.photo{
+  width: 50%;
+  text-align: right;
+}
+.photo img{
+  width: 600px;
+  margin: 40px;
+}
+.text{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  vertical-align: center;
+}
+.text h1{
+  line-height: 100px;
+  font-size: 72px;
+}
+.text p{
+  vertical-align: bottom;
+}
+.text_cont{
+  overflow: hidden;
+}
+.img_cont{
+  position: absolute;
+  margin-left: 330px;
+  margin-top: 230px;
+}
+.img_cont img{
+  width: 400px;
+}
+.instruction{
+  text-align: center;
+}
+.instruction .dots{
+  text-align: left;
+
+}
+.instruction .cards{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+.cards{
+  justify-content: center;
+  width: 80%;
+  margin-left:150px;
+}
+.dots img{
+  position: absolute;
+  width: 600px;
+  z-index: 1;
+  margin-top: 150px;
+  margin-left: 450px;
+}
+.card{
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+.card_tab{
+  width: 30%;
+  margin: 0 100px;
+}
+.consultants{
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+}
+.logo1{
+  width: 100px;
+}
+.results {
+  display: grid;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding-left: 100px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
+  justify-content: space-around;
+  background-color: #F3F3F3;
+  margin: 0;
+
+}
+
+

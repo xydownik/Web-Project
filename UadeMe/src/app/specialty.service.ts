@@ -59,11 +59,4 @@ export class SpecialtyService {
     return SpecialtyService.constList
   }
 
-  updateSpecialty(uni: Specialty){
-    return this.httpClient.put<Specialty>(this.BASE_URl, uni)
-  }
-
-  deleteSpecialty(uniId: number){
-    return this.httpClient.delete<any>(`${this.BASE_URl}/${uniId}`);
-  }
 }

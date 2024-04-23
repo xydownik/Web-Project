@@ -52,9 +52,6 @@ export class SpecialtiesComponent implements OnInit{
     // })
   }
 
-  deleteSpecialty(id: number) {
-    this.specialtyService.deleteSpecialty(id).subscribe()
-  }
 
   filterResults(text: string) {
     if (!text) {
