@@ -51,3 +51,41 @@ body {
 
 
 
+/* Общие стили для мобильных устройств */
+@media (max-width: 768px) {
+  .brand-name {
+    flex-direction: column; /* Stack elements vertically */
+    padding: 10px; /* Reduce padding */
+  }
+  .tabs {
+    margin: 10px 0; /* Adjust margin for tabs */
+    padding: 0; /* Remove right padding */
+    text-align: center; /* Center tabs */
+  }
+  .rega {
+    margin-top: 10px; /* Add space between tabs and registration links */
+  }
+  a {
+    margin: 5px 10px; /* Adjust margin for links */
+    font-size: 16px; /* Decrease font size */
+  }
+  .header-logo {
+    width: 100px; /* Set width for logo */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px auto; /* Center logo */
+  }
+}
+
+/* Дополнительные стили для маленьких экранов */
+@media (max-width: 480px) {
+  .tabs {
+    flex-direction: column; /* Stack tabs vertically */
+  }
+  a {
+    margin: 5px 10px; /* Adjust margin for links */
+    font-size: 14px; /* Decrease font size for smaller screens */
+  }
+  .header-logo {
+    width: 80px; /* Decrease width for smaller screens */
+  }
+}

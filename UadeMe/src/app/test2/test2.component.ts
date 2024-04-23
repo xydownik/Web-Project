@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {TestStatusService} from "../test-status.service";
 import {Test} from "../test";
 import {TestService} from "../test.service";
+import {TestResultService} from "../test-result.service";
 
 @Component({
   selector: 'app-test2',
@@ -51,7 +52,8 @@ export class Test2Component implements OnInit{
   isTestCompleted: boolean = false;
   isTestStarted: boolean = false;
 
-  constructor(private router: Router, private testStatusService: TestStatusService, private testService: TestService) {
+  constructor(private router: Router, private testStatusService: TestStatusService, private testService: TestService,
+              private testResultService: TestResultService) {
     this.isTestCompleted = testStatusService.isTestCompleted('test2')
     this.isTestStarted = testStatusService.isTestStarted('test2')
   }
@@ -85,6 +87,7 @@ export class Test2Component implements OnInit{
     this.answers[this.currentQuestionIndex] = answer;
     this.currentQuestionIndex++;
     if (this.currentQuestionIndex >= this.test.questions.length) {
+      this.submitTestResult(this.answers)
       this.isTestCompleted = true;
       this.testStatusService.setTestCompleted('test2')
       this.router.navigate(['home', 'test-page', 'tests']);
@@ -105,5 +108,18 @@ export class Test2Component implements OnInit{
   filterLetters(answer: string): string {
     return answer.replace(/[^a-zA-Z]/g, '');
   }
+
+  submitTestResult(testResultData: any) {
+    this.testResultService.saveTestResult("test2", testResultData)
+      .subscribe(
+        response => {
+          console.log('Результат теста успешно сохранен:', response);
+        },
+        error => {
+          console.error('Ошибка при сохранении результатов теста:', error);
+        }
+      );
+  }
+
 
 }

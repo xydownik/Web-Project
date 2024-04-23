@@ -1,5 +1,5 @@
-import { TestRes2Component } from './../test-res-2/test-res-2.component';
-import { TestRes1Component } from './../test-res-1/test-res-1.component';
+import { TestRes2Component } from '../test-res-2/test-res-2.component';
+import { TestRes1Component } from '../test-res-1/test-res-1.component';
 import { Component } from '@angular/core';
 import { RadarChartComponent } from '../radar-chart/radar-chart.component';
 import {RouterModule} from "@angular/router";

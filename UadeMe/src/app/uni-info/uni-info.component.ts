@@ -15,13 +15,12 @@ export class UniInfoComponent implements OnInit{
   loaded: boolean = false
 
   constructor(private route: ActivatedRoute, private uniService: UniversityService) {
-    this.university = undefined
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
         const name = params.get('name')
       if(name){
-        this.university = this.uniService.getUniversities().find(uni => uni.name.localeCompare(name))
+        this.university = this.uniService.getUniversity(name)
         this.loaded = true
       }
       else this.loaded = false

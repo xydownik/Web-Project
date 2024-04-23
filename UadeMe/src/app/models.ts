@@ -44,8 +44,11 @@ export interface Consultant{
   id: number,
   name: string,
   profession: string,
-  phone: number,
+  phone: string,
   telegram: string
   whatsApp: string,
+  insta: string,
   mail: string
+  photo: string,
+  rating: number
 }
