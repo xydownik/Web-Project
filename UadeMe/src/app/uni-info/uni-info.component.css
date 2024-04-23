@@ -1,6 +1,5 @@
 
 .uni_head{
-  padding-top: 60px;
   text-align: center;
   vertical-align: center;
   display: flex;
@@ -28,7 +27,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 1300px;
+  width: 100%;
   border-radius: 20px;
   justify-content: center;
   align-items: center;

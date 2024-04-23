@@ -46,8 +46,11 @@ export class UniversityService{
   getUniversities(){
     return UniversityService.constList
   }
+  getUniversity(title: string){
+    return this.getUniversities().find(uni => uni.name.localeCompare(title))
+  }
 
-  getUniversity(id: number){
+  getUniversityObs(id: number){
     return this.httpClient.get<University>(`${this.BASE_URl}${id}`)
   }
 
