@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {TestStatusService} from "../test-status.service";
 import {NgIf} from "@angular/common";
 import {FooterComponent} from "../footer/footer.component";
@@ -9,7 +9,8 @@ import {FooterComponent} from "../footer/footer.component";
   standalone: true,
   imports: [
     NgIf,
-    FooterComponent
+    FooterComponent,
+    RouterLink
   ],
   templateUrl: './tests.component.html',
   styleUrl: './tests.component.css'

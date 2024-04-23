@@ -18,3 +18,8 @@ class Test(models.Model):
     test_type = models.CharField(max_length=20, choices=TEST_TYPES)
     questions = models.TextField()
     variants = models.TextField()
+
+
+class TestResult(models.Model):
+    test_type = models.CharField(max_length=20)
+    answers = models.JSONField(default=list)

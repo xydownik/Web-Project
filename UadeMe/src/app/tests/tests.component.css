@@ -107,3 +107,27 @@ header h1{
   background-color: #4caf50;
   border-radius: 5px;
 }
+
+.show-results {
+  display: flex;
+  justify-content: center;
+}
+
+.show-results a {
+  font-size: 20px;
+  margin-top: 70px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #7777c4;
+  color: #F3F3F3;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.show-results a:hover {
+  border-color: rebeccapurple;
+  background-color: whitesmoke;
+  color: black;
+  opacity: 0.5;
+}

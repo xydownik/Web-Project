@@ -5,6 +5,7 @@ import {TestStatusService} from "../test-status.service";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 import {Variant} from "../variant";
+import {TestResultService} from "../test-result.service";
 
 @Component({
   selector: 'app-test3',
@@ -75,7 +76,8 @@ export class Test3Component {
   secondCardStatus: boolean = false;
   answers: Variant[] = []
 
-  constructor(private router: Router, private testStatusService: TestStatusService) {
+  constructor(private router: Router, private testStatusService: TestStatusService,
+              private testResultService: TestResultService) {
     this.isTestCompleted = testStatusService.isTestCompleted('test3')
     this.isTestStarted = testStatusService.isTestStarted('test3')
   }
@@ -112,7 +114,9 @@ export class Test3Component {
     }
     this.firstCardStatus = this.secondCardStatus = false;
     this.currentQuestionIndex++;
+
     if (this.currentQuestionIndex >= this.test.questions.length) {
+      this.submitTestResult(this.answers.map(variant => variant.answer))
       this.isTestCompleted = true;
       this.testStatusService.setTestCompleted('test3')
       this.router.navigate(['home', 'test-page', 'tests']);
@@ -139,6 +143,18 @@ export class Test3Component {
   calculateProgress() {
     const completedTestsCount = this.answeredQuestionsCount - 1;
     return (completedTestsCount / this.totalQuestionsCount) * 100;
+  }
+
+  submitTestResult(testResultData: any) {
+    this.testResultService.saveTestResult("test3", testResultData)
+      .subscribe(
+        response => {
+          console.log('Результат теста успешно сохранен:', response);
+        },
+        error => {
+          console.error('Ошибка при сохранении результатов теста:', error);
+        }
+      );
   }
 
 }

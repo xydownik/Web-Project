@@ -1,28 +1,30 @@
-<head> 
+<head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
 </head>
 
-<body> 
-   <div class="begin"> 
-        <div class="numbered"> 
-            <h3 class="order"> 2 </h3> 
+<body>
+   <div class="begin">
+        <div class="numbered">
+            <h3 class="order"> 2 </h3>
         </div>
-        <div class="message"> 
-            <h3> Проффессиональные склонности </h3>  
-        </div>  
+        <div class="message">
+            <h3> Проффессиональные склонности </h3>
+        </div>
    </div>
-   
-   <div class="content"> 
 
-        <div class="line"> 
-            <img class="line2" src="/assets/images/Line 4(9).svg"> 
+   <div class="content">
+
+        <div class="line">
+            <img class="line2" src="/assets/images/Line 4(9).svg">
         </div>
 
-        <div class="content2"> 
+        <div class="content2">
 
-            <div class = "combat-hexagon"> 
-                
-              <app-radar-chart> </app-radar-chart>
+            <div class = "combat-hexagon">
+
+              <ng-container *ngIf="testResults">
+                <app-radar-chart [testResults]="testResults"> </app-radar-chart>
+              </ng-container>
 
             </div>
         </div>
