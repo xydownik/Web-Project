@@ -27,7 +27,7 @@
             <img src="assets/images/polygon.png">
             <p class="card-number">{{ (currentQuestionIndex + 1) * 2 - 1 + i }}</p>
             <h3>{{variant.answer}}</h3>
-            <p>{{variant.text}}</p>
+            <p id="text">{{variant.text}}</p>
           </div>
         </div>
         <button class="next" (click)="answerQuestion()">Далее</button>
