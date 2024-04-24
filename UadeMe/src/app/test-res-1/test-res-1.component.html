@@ -1,74 +1,78 @@
-<head> 
+<head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
 </head>
 
-<body> 
-   <div class="begin"> 
-        <div class="numbered"> 
-            <h3 class="order"> 1 </h3> 
+<body>
+   <div class="begin">
+        <div class="numbered">
+            <h3 class="order"> 1 </h3>
         </div>
-        <div class="message"> 
-            <h3> Тип профессии: Что вам подходит? </h3>  
-        </div>  
+        <div class="message">
+            <h3> Тип профессии: Что вам подходит? </h3>
+        </div>
    </div>
-   
-   <div class="content"> 
 
-        <div class="line"> 
-            <img class="line2" src="/assets/images/Line 4(9).svg"> 
-        </div>
+   <ng-container *ngIf="testResults">
 
-        <div class="content2"> 
+     <div class="content">
 
-        <div class="batterys"> 
-            <div class="battery">
-                <p> ч-природа </p>
-                <div class="battery_in"> 
-                    <img src="/assets/images/battery_types/1.svg"> 
-                    <h4> Val </h4>  
-                </div>
-            </div> 
+          <div class="line">
+              <img class="line2" src="/assets/images/Line 4(9).svg">
+          </div>
 
-            <div class="battery">
-                <p> ч-техника </p>
-                <div class="battery_in"> 
-                    <img src="/assets/images/battery_types/1.svg"> 
-                    <h4> Val </h4>  
-                </div>
-            </div> 
+          <div class="content2">
 
-            <div class="battery">
-                <p> ч-человек </p>
-                <div class="battery_in"> 
-                    <img src="/assets/images/battery_types/1.svg"> 
-                    <h4> Val </h4>  
-                </div>
-            </div> 
+          <div class="batterys">
+              <div class="battery">
+                  <p> ч-природа </p>
+                  <div class="battery_in">
+                      <img [src]="'/assets/images/battery_types/' + testResults.nature + '.svg'">
+                      <h4> {{ testResults.nature }} </h4>
+                  </div>
+              </div>
 
-            <div class="battery">
-                <p> ч-система </p>
-                <div class="battery_in"> 
-                    <img src="/assets/images/battery_types/1.svg"> 
-                    <h4> Val </h4>  
-                </div>
-            </div> 
+              <div class="battery">
+                  <p> ч-техника </p>
+                  <div class="battery_in">
+                      <img [src]="'/assets/images/battery_types/' + testResults.tech + '.svg'">
+                      <h4> {{ testResults.tech }} </h4>
+                  </div>
+              </div>
 
-            <div class="battery">
-                <p> ч-худ.образ </p>
-                <div class="battery_in"> 
-                    <img src="/assets/images/battery_types/1.svg"> 
-                    <h4> Val </h4>  
-                </div>
-            </div> 
+              <div class="battery">
+                  <p> ч-человек </p>
+                  <div class="battery_in">
+                      <img [src]="'/assets/images/battery_types/' + testResults.human + '.svg'">
+                      <h4> {{ testResults.human }} </h4>
+                  </div>
+              </div>
 
-        </div> 
+              <div class="battery">
+                  <p> ч-система </p>
+                  <div class="battery_in">
+                      <img [src]="'/assets/images/battery_types/' + testResults.system + '.svg'">
+                      <h4> {{ testResults.system }} </h4>
+                  </div>
+              </div>
 
-        <div class="type">  
-            <img class="type2" src="/assets/images/types/nature.svg"> 
-        </div>
+              <div class="battery">
+                  <p> ч-худ.образ </p>
+                  <div class="battery_in">
+                      <img [src]="'/assets/images/battery_types/' + testResults.art + '.svg'">
+                      <h4> {{ testResults.art }} </h4>
+                  </div>
+              </div>
 
-        </div>
-    </div>
-    
+          </div>
+
+          <div class="type">
+            <img [src]="'/assets/images/types/' + testResults.the_most + '.svg'">
+          </div>
+
+          </div>
+      </div>
+
+   </ng-container>
+
 </body>
 
