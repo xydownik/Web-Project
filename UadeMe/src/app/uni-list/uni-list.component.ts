@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
 import {City, Discipline, Specialty, University} from "../models";
 import {UniversitiesComponent} from "../universities/universities.component";
 import {UniversityService} from "../university.service";
@@ -8,10 +8,12 @@ import {NgForOf} from "@angular/common";
 import {FooterComponent} from "../footer/footer.component";
 import {SpecialtyService} from "../specialty.service";
 import {CityService} from "../city.service";
+import {SpecialtiesComponent} from "../specialties/specialties.component";
+import {NgModel} from "@angular/forms";
 
 @Component({
   selector: 'app-uni-list',
-  standalone: true,
+
   imports: [
     RouterLink,
     UniItemComponent,
@@ -19,81 +21,101 @@ import {CityService} from "../city.service";
     FooterComponent
   ],
   templateUrl: './uni-list.component.html',
+  standalone: true,
   styleUrl: './uni-list.component.css'
 })
 export class UniListComponent  implements OnInit{
-  static constUnis: University[] = []
-  unis !: University[];
-  sortByList: string[] = ['цена', "город", "баллы на грант", "баллы на платный", "название"]
-  constructor(private uniService: UniversityService) {
-    this.unis = []
-  }
+  constList: University[] = [];
+  unis: University[] = [];
+  cities: City[] = [];
+  specialties: Specialty[] = [];
+  sortByList: string[] = ['цена', 'город', 'баллы на грант', 'баллы на платный', 'название'];
+
+  constructor(
+    private uniService: UniversityService,
+    private cityService: CityService,
+    private specService: SpecialtyService
+  ) {}
+
   ngOnInit(): void {
-    this.getUniversities()
+    this.getUniversities();
+    this.getCities();
+    this.getSpecialties();
   }
 
-  private getUniversities() {
-    if(UniListComponent.constUnis.length) {
-      this.unis = UniListComponent.constUnis
-      return
-    }
-    UniListComponent.constUnis = UniversityService.constList
-    this.unis = UniListComponent.constUnis
+  private getUniversities(): void {
+   if(this.constList.length){
+     this.unis = this.constList
+     return
+   }
+   this.uniService.getUniversities().subscribe(unis =>{
+     this.unis = unis
+     this.constList = this.unis
+   })
 
-    // this.uniService.getUniversities().subscribe(unis => {
-    //   this.unis = unis
-    //   if(!UniListComponent.constUnis.length) {
-    //     UniListComponent.constUnis = this.unis
-    //   }
-    // })
   }
-  filterResults(text: string) {
+
+  private getCities(): void {
+    this.cityService.getCities().subscribe(cities => {
+      this.cities = cities;
+    });
+  }
+
+  private getSpecialties(): void {
+    this.specService.getSpecialties().subscribe(specs => {
+      this.specialties = specs;
+    });
+  }
+
+  filterResults(text: string): void {
     if (!text) {
-      this.unis = UniListComponent.constUnis;
+      this.unis = [];
       return;
     }
-    this.unis = UniListComponent.constUnis.filter(uni =>
+    this.unis = this.unis.filter(uni =>
       uni.name.toLowerCase().includes(text.toLowerCase())
     );
   }
 
-
-  filterListByUniversity(it: string) {
-    this.unis = UniListComponent.constUnis.filter(uni =>
-      uni.name == it
+  filterListByUniversity(uniName: string): void {
+    this.unis = this.constList.filter(uni =>
+      uni.name.toLowerCase() === uniName.toLowerCase()
     );
   }
-  filterListBySpecialty(it: Specialty) {
-    this.unis = UniListComponent.constUnis.filter(uni =>
-      uni.specialties.includes(it)
+
+  filterListBySpecialty(specialty: Specialty): void {
+    this.unis = this.constList.filter(uni =>
+      uni.specialties.some(spec => spec.name === specialty.name)
     );
   }
-  filterListByCity(it: City) {
-    this.unis = UniListComponent.constUnis.filter(uni =>
-    uni.location == it)
-  }
-  sortBy(param: string){
-    if(param == 'цена'){
-      this.unis.sort((a,b) => b.cost - a.cost)
-    }
-    else if(param == 'город'){
-      this.unis.sort((a,b) => a.location.city.localeCompare(b.location.city) )
-    }
-    else if(param== 'баллы на грант'){
-      this.unis.sort((a,b) => b.grantScore - a.grantScore)
-    }
-    else if(param == 'баллы на платный'){
-      this.unis.sort((a,b) => b.paidScore - a.paidScore)
-    }
-    else { //'название'
-      this.unis.sort((a,b) => a.name.localeCompare(b.name))
-    }
-  }
-  returnAll(){
-    this.unis = this.uniService.getUniversities()
+
+  filterListByCity(city: City): void {
+    this.unis = this.constList.filter(uni =>
+      uni.location.city.toLowerCase() === city.city.toLowerCase()
+    );
   }
 
-  protected readonly UniversityService = UniversityService;
-  protected readonly SpecialtyService = SpecialtyService;
-  protected readonly CityService = CityService;
+  sortBy(param: string): void {
+    switch (param) {
+      case 'цена':
+        this.unis.sort((a, b) => a.cost - b.cost);
+        break;
+      case 'город':
+        this.unis.sort((a, b) => a.location.city.localeCompare(b.location.city));
+        break;
+      case 'баллы на грант':
+        this.unis.sort((a, b) => a.grantScore - b.grantScore);
+        break;
+      case 'баллы на платный':
+        this.unis.sort((a, b) => a.paidScore - b.paidScore);
+        break;
+      default: //'название'
+        this.unis.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+    }
+  }
+
+  returnAll(): void {
+    this.getUniversities();
+  }
 }

@@ -24,7 +24,8 @@ export class ConsultPageComponent implements OnInit{
   }
 
   getConsultants(){
-    this.consultants = this.consultService.getConsultants()
+    this.consultService.getConsultants().subscribe(con =>
+    this.consultants = con)
   }
 
 

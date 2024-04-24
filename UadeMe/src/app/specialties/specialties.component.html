@@ -9,7 +9,7 @@
       <button class="dropdown-btn" >Специальность</button>
       <div class="dropdown-content"  >
         <button (click)="returnAll()">All</button>
-        <button *ngFor="let specialty of SpecialtyService.constList"
+        <button *ngFor="let specialty of constSpecList"
                 (click)="filterListBySpecialty(specialty.name)">{{specialty.name}}</button>
 
         <!-- Add more options as needed -->
@@ -20,7 +20,7 @@
       <button class="dropdown-btn" >Университет</button>
       <div class="dropdown-content"  >
         <button (click)="returnAll()">All</button>
-        <button *ngFor="let uni of UniversityService.constList"
+        <button *ngFor="let uni of universities"
                 (click)="filterListByUniversity(uni.name)">{{uni.name}}</button>
 
         <!-- Add more options as needed -->
@@ -31,7 +31,7 @@
       <button class="dropdown-btn" >Предметы</button>
       <div class="dropdown-content"  >
         <button (click)="returnAll()">All</button>
-        <button *ngFor="let disc of DisciplineService.constList"
+        <button *ngFor="let disc of disciplines"
                 (click)="filterListByDiscipline(disc)">{{disc.name}}</button>
 
         <!-- Add more options as needed -->

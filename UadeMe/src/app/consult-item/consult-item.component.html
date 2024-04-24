@@ -28,7 +28,7 @@
         </div>
         <div class="contacts" *ngIf="consult.whatsApp != ''">
           <img src="assets/images/whatsapp.png">
-          <p>{{consult.whatsApp}}</p>
+          <a href="https://wa.me/{{consult.whatsApp}}?text=Здравствуйте, хотела записаться">Записаться:{{consult.whatsApp}}</a>
         </div>
       </div>
 

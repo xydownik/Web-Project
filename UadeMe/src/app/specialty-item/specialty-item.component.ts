@@ -17,10 +17,7 @@ export class SpecialtyItemComponent {
   @Input()specialty!: Specialty
   isActive: boolean = false
   toggle(){
-    if(this.isActive){
-      this.isActive = false
-    }
-    else this.isActive = true
+    this.isActive = !this.isActive;
   }
 
 

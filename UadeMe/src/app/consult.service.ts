@@ -60,10 +60,8 @@ export class ConsultService {
       rating: 3.5
     }
   ]
-  getConsultants(){
-    return ConsultService.constList
-  }
-  getConsultantsObs(): Observable<Consultant[]>{
+
+  getConsultants(): Observable<Consultant[]>{
     return this.httpClient.get<Consultant[]>(`${this.BASE_URL}`)
   }
   getConsultant(id: number){

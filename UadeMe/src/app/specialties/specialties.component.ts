@@ -1,6 +1,6 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {SpecialtyItemComponent} from "../specialty-item/specialty-item.component";
-import {Discipline, Specialty} from "../models";
+import {Discipline, Specialty, University} from "../models";
 import {SpecialtyService} from "../specialty.service";
 import {Observable} from "rxjs";
 import {NgForOf, NgIf} from "@angular/common";
@@ -22,10 +22,11 @@ import {FooterComponent} from "../footer/footer.component";
   styleUrls: ['./specialties.component.css', "../specialty-item/specialty-item.component.css"]
 })
 export class SpecialtiesComponent implements OnInit{
-  static constSpecList: Specialty[] = []
+  constUnis: University[] = []
+  constSpecList: Specialty[] = []
   specialtyList: Specialty[] = []
-  specialtyService: SpecialtyService = inject(SpecialtyService)
-  protected readonly SpecialtyService = SpecialtyService;
+  universities !: University[]
+  disciplines!: Discipline[]
   protected readonly DisciplineService = DisciplineService;
   protected readonly UniversityService = UniversityService;
   sortByList: string[] = ['название','баллы по квоте','баллы общ.', 'колл. грантов', 'колл. ВУЗов', ]
@@ -34,50 +35,52 @@ export class SpecialtiesComponent implements OnInit{
   ngOnInit(): void {
     this.getSpecialties()
   }
-  constructor() {
+  constructor(private specialtyService: SpecialtyService, private uniService: UniversityService,
+              private discService : DisciplineService) {
     this.specialtyList = []
   }
-  getSpecialties(){
-    if(SpecialtiesComponent.constSpecList.length) {
-      this.specialtyList = SpecialtiesComponent.constSpecList
+  private getSpecialties(){
+    if(this.constSpecList.length){
+      this.specialtyList = this.constSpecList
       return
     }
-    SpecialtiesComponent.constSpecList = this.specialtyService.getSpecialties()
-    this.specialtyList = SpecialtiesComponent.constSpecList
-    // this.specialtyService.getSpecialties().subscribe(specialties => {
-    //   this.specialtyList = specialties
-    //   if(!SpecialtiesComponent.constSpecList.length) {
-    //     SpecialtiesComponent.constSpecList = this.specialtyList
-    //   }
-    // })
+    this.specialtyService.getSpecialties().subscribe((spec: Specialty[]) => {
+      this.specialtyList = spec
+      this.constSpecList = this.specialtyList;
+    })
+    this.uniService.getUniversities().subscribe(unis =>{
+      this.universities = unis
+      this.constUnis = this.universities
+    })
+    this.discService.getDisciplines().subscribe(disc =>{
+      this.disciplines = disc
+    })
   }
 
 
   filterResults(text: string) {
     if (!text) {
-      this.specialtyList = SpecialtiesComponent.constSpecList;
+      this.specialtyList = this.constSpecList;
       return;
     }
-    this.specialtyList = SpecialtiesComponent.constSpecList.filter(specialty =>
+    this.specialtyList = this.constSpecList.filter(specialty =>
       specialty.name.toLowerCase().includes(text.toLowerCase())
     );
   }
 
 
   filterListBySpecialty(it: string) {
-    this.specialtyList = SpecialtiesComponent.constSpecList.filter(specialty =>
+    this.specialtyList = this.constSpecList.filter(specialty =>
       specialty.name == it
     );
   }
   filterListByUniversity(it: string) {
-    this.specialtyList = SpecialtiesComponent.constSpecList.filter(specialty =>
 
-      UniversityService.constList.some(uni => uni.specialties.includes(specialty) && uni.name == it)
-    );
+    this.specialtyList = this.constUnis.filter(uni => uni.name == it )[0].specialties
   }
   filterListByDiscipline(it: Discipline) {
-    this.specialtyList = SpecialtiesComponent.constSpecList.filter(specialty =>
-      specialty.disciplines.includes(it)
+    this.specialtyList = this.constSpecList.filter(specialty =>
+      specialty.disciplines.some(disc =>disc.name == it.name)
     );
   }
   sortBy(param: string){
@@ -98,7 +101,7 @@ export class SpecialtiesComponent implements OnInit{
     }
   }
   returnAll(){
-    this.specialtyList = this.specialtyService.getSpecialties()
+    this.specialtyList = this.constSpecList
   }
 
 }

@@ -7,7 +7,7 @@ import {Discipline, University} from "./models";
   providedIn: 'root'
 })
 export class DisciplineService {
-  BASE_URl = "https://jsonplaceholder.typicode.com/posts"
+  BASE_URl = "http://127.0.0.1:8000/api/disciplines/"
   static constList: Discipline[] = [
     {
       id:1,
@@ -32,4 +32,5 @@ export class DisciplineService {
   getDisciplines(): Observable<Discipline[]>{
     return this.httpClient.get<Discipline[]>(`${this.BASE_URl}`)
   }
+
 }

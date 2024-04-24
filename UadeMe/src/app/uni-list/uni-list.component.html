@@ -2,59 +2,41 @@
   <hr>
   <section class="filter_bar">
     <form class="search_tab">
-      <input type="text" class="search_input" placeholder="Filter..." #filter >
+      <input type="text" class="search_input" placeholder="Filter..." #filter>
       <img class="search_icon" src="/assets/images/search_icon.png" (click)="filterResults(filter.value)">
     </form>
-    <div class="dropdown" >
-      <button class="dropdown-btn" >Специальность</button>
-      <div class="dropdown-content"  >
+    <div class="dropdown">
+      <button class="dropdown-btn">Специальность</button>
+      <div class="dropdown-content">
         <button (click)="returnAll()">All</button>
-        <button *ngFor="let specialty of SpecialtyService.constList"
-                (click)="filterListBySpecialty(specialty)">{{specialty.name}}</button>
-
-        <!-- Add more options as needed -->
+        <button *ngFor="let specialty of specialties" (click)="filterListBySpecialty(specialty)">{{ specialty.name }}</button>
       </div>
-
     </div>
-    <div class="dropdown" >
-      <button class="dropdown-btn" >Университет</button>
-      <div class="dropdown-content"  >
+    <!-- Add similar dropdowns for "Университет" and "Город" -->
+    <div class="dropdown">
+      <button class="dropdown-btn">Университет</button>
+      <div class="dropdown-content">
         <button (click)="returnAll()">All</button>
-        <button *ngFor="let uni of UniversityService.constList"
-                (click)="filterListByUniversity(uni.name)">{{uni.name}}</button>
-
-        <!-- Add more options as needed -->
+        <button *ngFor="let uni of constList" (click)="filterListByUniversity(uni.name)">{{ uni.name }}</button>
       </div>
-
     </div>
-    <div class="dropdown" >
-      <button class="dropdown-btn" >Город</button>
-      <div class="dropdown-content"  >
+    <div class="dropdown">
+      <button class="dropdown-btn">Город</button>
+      <div class="dropdown-content">
         <button (click)="returnAll()">All</button>
-        <button *ngFor="let city of CityService.constList"
-                (click)="filterListByCity(city)">{{city.city}}</button>
-
-        <!-- Add more options as needed -->
+        <button *ngFor="let city of cities" (click)="filterListByCity(city)">{{ city.city }}</button>
       </div>
-
     </div>
-    <div class="dropdown" >
-      <button class="dropdown-btn" >Сортировать</button>
-      <div class="dropdown-content"  >
-        <button (click)="returnAll()">All</button>
-        <button *ngFor="let item of sortByList"
-                (click)="sortBy(item)">{{item}}</button>
-
-        <!-- Add more options as needed -->
+    <div class="dropdown">
+      <button class="dropdown-btn">Сортировать</button>
+      <div class="dropdown-content">
+        <button *ngFor="let item of sortByList" (click)="sortBy(item)">{{ item }}</button>
       </div>
-
     </div>
-
   </section>
   <div class="uni_container">
+    <!-- Display filtered universities using ngFor -->
     <app-uni-item *ngFor="let uni of unis" [university]="uni"></app-uni-item>
   </div>
 </div>
 <app-footer></app-footer>
-
-

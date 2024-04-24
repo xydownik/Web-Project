@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {City, Discipline} from "./models";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -7,21 +7,18 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class CityService {
-  BASE_URl = "https://jsonplaceholder.typicode.com/posts"
-  static constList: City[] = [
-    {
-      id:1,
-      city: 'Almaty'
-    },
-    {
-      id:2,
-      city: 'Astana'
-    }
+  BASE_URl = "http://127.0.0.1:8000/api/cities/"
+  static constList: City[] = []
 
-  ]
 
-  constructor(private httpClient: HttpClient) { }
-  getCity(): Observable<City>{
-    return this.httpClient.get<City>(`${this.BASE_URl}`)
+
+  constructor(private httpClient: HttpClient) {
+
   }
+  getCities(): Observable<City[]>{
+    return this.httpClient.get<City[]>(`${this.BASE_URl}`)
+  }
+
+
+
 }
