@@ -6,5 +6,4 @@ export interface TestRes2 {
     "research": number;
     "aesthetics": number;
     "economic": number;
-    "the_most": string
 }

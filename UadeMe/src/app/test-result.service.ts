@@ -9,6 +9,7 @@ export class TestResultService {
 
   private apiUrl = 'http://127.0.0.1:8000/api/';
 
+
   constructor(private http: HttpClient) { }
 
   saveTestResult(testType: string, testResultData: string[]): Observable<any> {

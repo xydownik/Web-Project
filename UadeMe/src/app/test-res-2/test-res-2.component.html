@@ -22,7 +22,7 @@
 
             <div class = "combat-hexagon">
 
-              <ng-container *ngIf="testResults">
+              <ng-container *ngIf="testResults != undefined">
                 <app-radar-chart [testResults]="testResults"> </app-radar-chart>
               </ng-container>
 
