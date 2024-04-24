@@ -12,9 +12,13 @@
     <a [routerLink]="['/home/universities']" class="tab"> Университеты </a>
     <a [routerLink]="['/home/specialties']" class="tab"> Специальности </a>
   </nav>
-  <nav class = "rega">
+  <nav *ngIf="!this.loginService.getLoggedStatus()" class = "rega">
     <a [routerLink]="['/home/login-page']" class="tab"> Войти </a>
     <a [routerLink]="['/home/sign-in-page']" class="tab"> Регистрация </a>
+  </nav>
+  <nav *ngIf="this.loginService.getLoggedStatus()" class = "rega">
+    <a class="username"> {{ localStorage.getItem("username") }} </a>
+    <a (click)="logout()" class="tab"> Выйти </a>
   </nav>
 </header>
 </body>

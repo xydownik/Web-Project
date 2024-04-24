@@ -1,10 +1,12 @@
 from django.urls import path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 from .views import *
 
 urlpatterns = [
     path('tests/<str:test_type>/', TestListByTypeAPIView.as_view(), name='test-list-by-type'),
-    path('save_test_result/<str:test_type>/', save_test_result, name='save-test-result'),
-    path('get_test_result/<str:test_type>/', get_test_result, name='get-test-result'),
+    path('save_test_result/<str:test_type>/<str:username>/', save_test_result, name='save-test-result'),
+    path('get_test_result/<str:test_type>/<str:username>/', get_test_result, name='get-test-result'),
     path('disciplines/', discipline_list, name='discipline_list'),
     path('disciplines/<int:pk>/', discipline_detail, name='discipline_detail'),
     path('specialties/', specialty_list, name='specialty_list'),
@@ -15,6 +17,7 @@ urlpatterns = [
     path('consultants/<int:pk>/', consultant_detail, name='consultant_detail'),
     path('cities/', city_list, name='city_list'),
     path('cities/<int:pk>/', city_detail, name='city_detail'),
-
-
+    path('login/', TokenObtainPairView.as_view()),
+    path('refresh/', TokenRefreshView.as_view()),
 ]
+

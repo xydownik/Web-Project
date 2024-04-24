@@ -1,7 +1,13 @@
 
+<div *ngIf="!this.loginService.getLoggedStatus()" class="main">
 
+  <header>
+    <h1>Авторизуйтесь перед тем как начать тестирование!<hr></h1>
+  </header>
 
-<div class="main">
+</div>
+
+<div *ngIf="this.loginService.getLoggedStatus()" class="main">
   <header>
     <h1>Откройте дверь в будущее, где ваши таланты расцветут<hr></h1>
   </header>
@@ -35,6 +41,9 @@
     <p>Завершите все 3 теста</p>
     <div class="progress-bar">
       <div class="progress-completed" [style.width.%]="calculateProgress()"></div>
+    </div>
+    <div class="show-results">
+      <button [routerLink]="['/home/tests/test-results']">Посмотреть старые результаты</button>
     </div>
   </div>
 

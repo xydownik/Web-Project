@@ -26,15 +26,17 @@ class TestSerializer(serializers.ModelSerializer):
 class TestResultSerializer(serializers.ModelSerializer):
     class Meta:
         model = TestResult
-        fields = ['id', 'test_type', 'answers']
+        fields = ['id', 'test_type', 'answers', 'username']
 
     def create(self, validated_data):
         test_type = validated_data.get('test_type')
         answers = validated_data.get('answers')
+        username = validated_data.get('username')
         result = get_answers_for_test_type(test_type, answers)
         test_result = TestResult.objects.create(
             test_type=test_type,
-            answers=result
+            answers=result,
+            username=username
         )
         return test_result
 
@@ -101,26 +103,29 @@ def get_answers_for_test_type(test_type, answers):
         return answers
 
 
-
 class DisciplineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Discipline
         fields = '__all__'
+
 
 class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
         fields = '__all__'
 
+
 class SpecialtySerializer(serializers.ModelSerializer):
     class Meta:
         model = Specialty
         fields = '__all__'
 
+
 class UniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = University
         fields = '__all__'
+
 
 class ConsultantSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,9 +1,10 @@
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 
 from .models import *
 from .serializers import *
@@ -11,7 +12,7 @@ from .serializers import *
 
 class TestListByTypeAPIView(APIView):
     serializer_class = TestSerializer
-
+    permission_classes = [IsAuthenticated]
     def get(self, request, test_type):
         test = Test.objects.get_by_test_type(test_type=test_type)
         serializer = self.serializer_class(test)
@@ -19,9 +20,10 @@ class TestListByTypeAPIView(APIView):
 
 
 @api_view(['POST'])
-def save_test_result(request, test_type):
+@permission_classes([IsAuthenticated])
+def save_test_result(request, test_type, username):
     answers = request.data
-    serializer = TestResultSerializer(data={"test_type": test_type, "answers": answers})
+    serializer = TestResultSerializer(data={"test_type": test_type, "answers": answers, "username": username})
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -29,8 +31,9 @@ def save_test_result(request, test_type):
 
 
 @api_view(['GET'])
-def get_test_result(request, test_type):
-    test_results = TestResult.objects.filter(test_type=test_type)
+@permission_classes([IsAuthenticated])
+def get_test_result(request, test_type, username):
+    test_results = TestResult.objects.filter(test_type=test_type, username = username)
     if test_results.exists():
         return Response(test_results.last().answers)
     else:

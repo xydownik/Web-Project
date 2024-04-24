@@ -4,6 +4,7 @@ import {TestStatusService} from "../test-status.service";
 import {NgIf} from "@angular/common";
 import {FooterComponent} from "../footer/footer.component";
 import {RadarChartComponent} from "../radar-chart/radar-chart.component";
+import {AuthenticationService} from "../authentication.service";
 
 @Component({
   selector: 'app-tests',
@@ -19,7 +20,9 @@ import {RadarChartComponent} from "../radar-chart/radar-chart.component";
 })
 export class TestsComponent {
 
-  constructor(private router: Router, private testStatusService: TestStatusService) {}
+  constructor(private router: Router, private testStatusService: TestStatusService,
+              protected loginService: AuthenticationService) {
+  }
 
   navigateToTest(test: number) {
     this.router.navigate(['home', 'test-page', 'tests', test]);

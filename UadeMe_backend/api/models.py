@@ -22,7 +22,9 @@ class Test(models.Model):
 
 class TestResult(models.Model):
     test_type = models.CharField(max_length=20)
+    username = models.CharField(max_length=100)
     answers = models.JSONField(default=list)
+
 
 class Discipline(models.Model):
     name = models.CharField(max_length=100)

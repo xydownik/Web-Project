@@ -5,9 +5,9 @@
       <img src="assets/images/Logo-2.svg" alt="Logo">
     </div>
     <form action="/home/consultants" method="POST">
-      <input type="text" name="username" placeholder="Username" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <button type="submit">Login</button>
+      <input [(ngModel)]="username" type="text" name="username" placeholder="Username" required>
+      <input [(ngModel)]="password" type="password" name="password" placeholder="Password" required>
+      <button (click)="login()" type="submit">Login</button>
     </form>
   </div>
 </div>

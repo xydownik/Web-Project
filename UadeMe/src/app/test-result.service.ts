@@ -13,12 +13,12 @@ export class TestResultService {
   constructor(private http: HttpClient) { }
 
   saveTestResult(testType: string, testResultData: string[]): Observable<any> {
-    const url = `${this.apiUrl}save_test_result/${testType}/`;
+    const url = `${this.apiUrl}save_test_result/${testType}/${localStorage.getItem("username")}/`;
     return this.http.post<any>(url, testResultData);
   }
 
   getTestResult(testType: string): Observable<any> {
-    const url = `${this.apiUrl}get_test_result/${testType}/`;
+    const url = `${this.apiUrl}get_test_result/${testType}/${localStorage.getItem("username")}/`;
     return this.http.get<any>(url);
   }
 

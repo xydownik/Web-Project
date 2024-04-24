@@ -29,6 +29,7 @@ a:active {
 }
 a:hover {
     color: #1B1AE1;
+    cursor: pointer;
 }
 
 body {
@@ -46,6 +47,10 @@ body {
 
 .header-logo {
     margin-left: 30px;
+}
+
+.username {
+  color: #411f51;
 }
 
 
