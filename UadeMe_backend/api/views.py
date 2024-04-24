@@ -109,7 +109,7 @@ def university_detail(request, pk):
 def specialty_list(request):
     if request.method == 'GET':
         specialties = Specialty.objects.all()
-        serializer = DisciplineSerializer(specialties, many=True)
+        serializer = SpecialtySerializer(specialties, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
