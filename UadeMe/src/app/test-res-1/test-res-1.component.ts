@@ -26,7 +26,7 @@ export class TestRes1Component implements OnInit{
     this.testResultService.getTestResult("test1").subscribe(
       result => {
         this.testResults = result
-        
+
       }
     )
   }
