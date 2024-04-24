@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Test, TestResult
+from .models import Test, TestResult, University, Specialty, City, Discipline, Consultant
 
 
 class TestSerializer(serializers.ModelSerializer):
@@ -99,3 +99,30 @@ def get_answers_for_test_type(test_type, answers):
 
     elif test_type == "test3":
         return answers
+
+
+
+class DisciplineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Discipline
+        fields = '__all__'
+
+class CitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = City
+        fields = '__all__'
+
+class SpecialtySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Specialty
+        fields = '__all__'
+
+class UniversitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = University
+        fields = '__all__'
+
+class ConsultantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Consultant
+        fields = '__all__'
