@@ -12,6 +12,8 @@ import {ConsultService} from "./consult.service";
 import {ConsultPageComponent} from "./consult-page/consult-page.component";
 import {RadarChartComponent} from "./radar-chart/radar-chart.component";
 import {TestResultsComponent} from "./test-results/test-results.component";
+import {SignInPageComponent} from "./sign-in-page/sign-in-page.component";
+import {LoginPageComponent} from "./login-page/login-page.component";
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent, title: 'Home'},
@@ -25,6 +27,8 @@ export const routes: Routes = [
   {path: 'home/consultation', component: ConsultPageComponent, title: 'Consultation'},
   {path: 'home/tests/test-results', component: TestResultsComponent, title: 'Test Results'},
   {path: 'home/universities/:id', component: UniInfoComponent, title: 'University Information'},
+  {path: 'home/login-page', component: LoginPageComponent, title: 'Login'},
+  {path: 'home/sign-in-page', component: SignInPageComponent, title: 'Sign In'},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 
 ];

@@ -1,20 +1,20 @@
 
 <body>
- <header class="brand-name">
-    <div class="name_logo">
-      <img class="header-logo" src = "/assets/images/Logo-2.svg" alt = "logo">
-    </div>
-    <nav class="tabs">
-      <!-- href will be replaced with routerLink or with button with function goToPage-->
-      <a [routerLink]="['/home']" class="tab"> Главная </a>
-      <a [routerLink]="['/home/test-page']" class="tab"> Тесты </a>
-      <a [routerLink]="['/home/consultation']" class="tab"> Консультация </a>
-      <a [routerLink]="['/home/universities']" class="tab"> Университеты </a>
-      <a [routerLink]="['/home/specialties']" class="tab"> Специальности </a>
-    </nav>
-    <nav class = "rega">
-      <a href = "https://angular.io/tutorial/first-app/first-app-lesson-02" class="tab"> Войти </a>
-      <a href = "https://angular.io/tutorial/first-app/first-app-lesson-02" class="tab"> Регистрация </a>
-    </nav>
-  </header>
+<header class="brand-name">
+  <div class="name_logo">
+    <img class="header-logo" src = "/assets/images/Logo-2.svg" alt = "logo">
+  </div>
+  <nav class="tabs">
+    <!-- href will be replaced with routerLink or with button with function goToPage-->
+    <a [routerLink]="['/home']" class="tab"> Главная </a>
+    <a [routerLink]="['/home/test-page']" class="tab"> Тесты </a>
+    <a [routerLink]="['/home/consultation']" class="tab"> Консультация </a>
+    <a [routerLink]="['/home/universities']" class="tab"> Университеты </a>
+    <a [routerLink]="['/home/specialties']" class="tab"> Специальности </a>
+  </nav>
+  <nav class = "rega">
+    <a [routerLink]="['/home/login-page']" class="tab"> Войти </a>
+    <a [routerLink]="['/home/sign-in-page']" class="tab"> Регистрация </a>
+  </nav>
+</header>
 </body>
