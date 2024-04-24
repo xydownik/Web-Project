@@ -101,7 +101,6 @@ def get_answers_for_test_type(test_type, answers):
         return answers
 
 
-
 class DisciplineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Discipline
@@ -113,11 +112,16 @@ class CitySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class SpecialtySerializer(serializers.ModelSerializer):
+    disciplines = DisciplineSerializer(many=True)
+
     class Meta:
         model = Specialty
         fields = '__all__'
 
 class UniversitySerializer(serializers.ModelSerializer):
+    specialties = SpecialtySerializer(many=True)
+    location = CitySerializer()
+
     class Meta:
         model = University
         fields = '__all__'

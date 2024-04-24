@@ -74,13 +74,13 @@ export class SpecialtiesComponent implements OnInit{
       specialty.name == it
     );
   }
-  filterListByUniversity(it: string) {
+  filterListByUniversity(it: University) {
 
-    this.specialtyList = this.constUnis.filter(uni => uni.name == it )[0].specialties
+    this.specialtyList = it.specialties
   }
   filterListByDiscipline(it: Discipline) {
     this.specialtyList = this.constSpecList.filter(specialty =>
-      specialty.disciplines.some(disc =>disc.name == it.name)
+      specialty.disciplines.some(disc =>disc.name.localeCompare(it.name))
     );
   }
   sortBy(param: string){

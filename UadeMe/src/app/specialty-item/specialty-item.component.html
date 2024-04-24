@@ -7,6 +7,7 @@
         <p class="p1">{{specialty.name}}</p>
         <div class="subjects">
           <p class="p4">🕮 {{ specialty.disciplines[0].name }}/{{specialty.disciplines[1].name}}</p>
+          <p class="p4">Код специальности: {{specialty.code}}</p>
         </div>
       </div>
       <div class="unt_points">
@@ -16,7 +17,6 @@
     <div class="text2">
       <div class="fields">
         <p class="p2">
-          {{ specialty.eduPrograms }}<br>
           {{ specialty.unisNum }}<br>
           {{ specialty.grants }}<br>
           {{ specialty.demand }}
@@ -24,7 +24,6 @@
       </div>
       <div class="fields">
         <p class="p3">
-          программ обучения<br>
           ВУЗа в Казахстане<br>
           грантов в 2023 году<br>
           спрос

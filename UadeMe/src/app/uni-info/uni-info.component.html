@@ -20,15 +20,17 @@
       </div>
       <div class="card">
         <img src="assets/images/polygon.png">
-        <p>{{ university.specialties.length }} факультетов</p>
+        <p>{{ university.code }} код университета</p>
       </div>
     </div>
     <div class="description">
       <p>Список специальностей</p>
       <p *ngFor="let spec of university.specialties"  >{{spec.name}}</p>
-      <p>{{university.grantScore}}</p>
-      <p>{{university.paidScore}}</p>
-      <p>{{university.phoneNumber}}</p>
+      <p>Пороговый балл для поступления: {{university.floorScore}}</p>
+      <p>Номер приемной комиссий: {{university.phoneNumber}}</p>
+      <p>Описание: {{university.description}}</p>
+      <a>Ссылка на официальный сайт: {{university.link}}</a>
+
 
 
     </div>

@@ -13,6 +13,7 @@ import {HomeComponent} from "./home/home.component";
 import {BrowserModule} from "@angular/platform-browser";
 import { TestResultsComponent } from './test-results/test-results.component';
 import { RadarChartComponent } from './radar-chart/radar-chart.component';
+import {FormsModule} from "@angular/forms";
 
 
 @Component({
@@ -29,9 +30,10 @@ import { RadarChartComponent } from './radar-chart/radar-chart.component';
     HeaderComponent,
     FooterComponent,
     TestPageComponent,
-    HomeComponent, 
-    TestResultsComponent, 
-    RadarChartComponent
+    HomeComponent,
+    TestResultsComponent,
+    RadarChartComponent,
+    FormsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

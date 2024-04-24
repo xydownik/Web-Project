@@ -9,7 +9,8 @@ import {FooterComponent} from "../footer/footer.component";
 import {SpecialtyService} from "../specialty.service";
 import {CityService} from "../city.service";
 import {SpecialtiesComponent} from "../specialties/specialties.component";
-import {NgModel} from "@angular/forms";
+import {FormsModule} from "@angular/forms";
+
 
 @Component({
   selector: 'app-uni-list',
@@ -18,18 +19,20 @@ import {NgModel} from "@angular/forms";
     RouterLink,
     UniItemComponent,
     NgForOf,
-    FooterComponent
+    FooterComponent,
+    FormsModule,
   ],
   templateUrl: './uni-list.component.html',
   standalone: true,
   styleUrl: './uni-list.component.css'
 })
 export class UniListComponent  implements OnInit{
+  searchText: string = '';
   constList: University[] = [];
   unis: University[] = [];
   cities: City[] = [];
   specialties: Specialty[] = [];
-  sortByList: string[] = ['цена', 'город', 'баллы на грант', 'баллы на платный', 'название'];
+  sortByList: string[] = ['цена', 'город', 'пороговые баллы', 'название'];
 
   constructor(
     private uniService: UniversityService,
@@ -67,14 +70,14 @@ export class UniListComponent  implements OnInit{
     });
   }
 
-  filterResults(text: string): void {
-    if (!text) {
-      this.unis = [];
-      return;
+  filterResults(): void {
+    if (!this.searchText.trim()) {
+      this.unis = this.constList;
+    } else {
+      this.unis = this.constList.filter(uni =>
+        uni.name.toLowerCase().includes(this.searchText.toLowerCase())
+      );
     }
-    this.unis = this.unis.filter(uni =>
-      uni.name.toLowerCase().includes(text.toLowerCase())
-    );
   }
 
   filterListByUniversity(uniName: string): void {
@@ -85,7 +88,7 @@ export class UniListComponent  implements OnInit{
 
   filterListBySpecialty(specialty: Specialty): void {
     this.unis = this.constList.filter(uni =>
-      uni.specialties.some(spec => spec.name === specialty.name)
+      uni.specialties.some(spec => spec.name == specialty.name)
     );
   }
 
@@ -103,11 +106,8 @@ export class UniListComponent  implements OnInit{
       case 'город':
         this.unis.sort((a, b) => a.location.city.localeCompare(b.location.city));
         break;
-      case 'баллы на грант':
-        this.unis.sort((a, b) => a.grantScore - b.grantScore);
-        break;
-      case 'баллы на платный':
-        this.unis.sort((a, b) => a.paidScore - b.paidScore);
+      case 'пороговые баллы':
+        this.unis.sort((a, b) => a.floorScore - b.floorScore);
         break;
       default: //'название'
         this.unis.sort((a, b) => a.name.localeCompare(b.name));
