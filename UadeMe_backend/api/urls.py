@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import TestListByTypeAPIView, save_test_result, get_test_result
+from .views import (TestListByTypeAPIView, save_test_result, get_test_result)
 
 urlpatterns = [
     path('tests/<str:test_type>/', TestListByTypeAPIView.as_view(), name='test-list-by-type'),

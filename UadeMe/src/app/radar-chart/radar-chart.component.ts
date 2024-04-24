@@ -13,6 +13,7 @@ Chart.register(...registerables);
   styleUrl: './radar-chart.component.css'
 })
 export class RadarChartComponent implements OnInit {
+
   radarChart: any;
 
   @Input() testResults: TestRes2 | undefined;
@@ -27,12 +28,12 @@ export class RadarChartComponent implements OnInit {
       type: 'radar',
       data: {
         labels: ['РАБОТА С ЛЮДЬМИ', 'ЭКСТРЕМАЛЬНЫЙ', 'ИССЛЕДОВАНИЯ',
-        'ПЛАНОВО-ЭКОНОМИЧЕСКИЙ', 'ЭСТЕТИКА', 'ПРАКТИЧЕСКИЙ'],
+          'ПЛАНОВО-ЭКОНОМИЧЕСКИЙ', 'ЭСТЕТИКА', 'ПРАКТИЧЕСКИЙ'],
         datasets: [{
           label: this.testResults?.username,
           data: [this.testResults?.people, this.testResults?.extreme,
-                this.testResults?.research, this.testResults?.economic,
-              this.testResults?.aesthetics, this.testResults?.practice],
+            this.testResults?.research, this.testResults?.economic,
+            this.testResults?.aesthetics, this.testResults?.practice],
           fill: true,
           backgroundColor: ' rgba(0, 70, 124, 0.5)',
           borderColor: 'rgba(0, 70, 124)',

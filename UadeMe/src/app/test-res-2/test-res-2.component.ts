@@ -16,7 +16,7 @@ import {NgIf} from "@angular/common";
 })
 export class TestRes2Component implements OnInit{
 
-  testResults : TestRes2 | undefined;
+  testResults: TestRes2 | undefined
 
 
   constructor(private testResultService: TestResultService) {

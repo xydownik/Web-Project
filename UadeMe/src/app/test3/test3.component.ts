@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Test} from "../test";
 import {Router} from "@angular/router";
 import {TestStatusService} from "../test-status.service";
@@ -6,6 +6,7 @@ import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 import {Variant} from "../variant";
 import {TestResultService} from "../test-result.service";
+import {TestService} from "../test.service";
 
 @Component({
   selector: 'app-test3',
@@ -18,56 +19,58 @@ import {TestResultService} from "../test-result.service";
   templateUrl: './test3.component.html',
   styleUrls: ['./test3.component.css','.././test1/test1.component.css']
 })
-export class Test3Component {
+export class Test3Component implements OnInit{
 
-  test: Test = {
-    questions: [
-      "Выберите карту",
-      "Выберите карту",
-      "Выберите карту",
-      "Выберите карту",
-      "Выберите карту",
-      "Выберите карту",
-      "Выберите карту",
-      "Выберите карту",
-      "Выберите карту",
-      "Выберите карту",
-      "Выберите карту",
-    ],
-    variants: [
-      [{text: 'Скорость - ваше второе имя', answer: 'Катализатор'}, {text: 'У вас все дела разложены по полочкам', answer: 'Планер'}],
-      [{text: 'Ваше любимое время года?', answer: 'Лето'},
-      {text: 'Ваше любимое животное?', answer: 'Собака'}],
+  // test: Test = {
+  //   questions: [
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //     "Выберите карту",
+  //   ],
+  //   variants: [
+  //     [{text: 'Скорость - ваше второе имя', answer: 'Катализатор'}, {text: 'У вас все дела разложены по полочкам', answer: 'Планер'}],
+  //     [{text: 'Ваше любимое время года?', answer: 'Лето'},
+  //     {text: 'Ваше любимое животное?', answer: 'Собака'}],
+  //
+  //     [{text: 'Какой ваш любимый цвет?', answer: 'Синий'},
+  //     {text: 'Какое ваше любимое блюдо?', answer: 'Пицца'}],
+  //
+  //     [{text: 'Какие виды спорта вам нравятся?', answer: 'Футбол'},
+  //     {text: 'Какое ваше любимое время суток?', answer: 'Вечер'}],
+  //
+  //     [{text: 'Что вы предпочитаете: кофе или чай?', answer: 'Кофе'},
+  //     {text: 'Какой ваш любимый фильм?', answer: 'Звездные войны'}],
+  //
+  //     [{text: 'Какое ваше любимое музыкальное направление?', answer: 'Рок'},
+  //     {text: 'Как вы предпочитаете проводить выходные?', answer: 'С друзьями'}],
+  //
+  //     [{text: 'Какие виды музыкальных инструментов вы играете?', answer: 'Гитара'},
+  //     {text: 'Как вы относитесь к путешествиям?', answer: 'Обожаю'}],
+  //
+  //     [{text: 'Как вы предпочитаете проводить свободное время?', answer: 'Чтение'},
+  //     {text: 'Какое ваше любимое место отдыха?', answer: 'Горы'}],
+  //
+  //     [{text: 'Как вы относитесь к активным видам отдыха?', answer: 'Положительно'},
+  //     {text: 'Что вы предпочитаете: книги или фильмы?', answer: 'Фильмы'}],
+  //
+  //     [{text: 'Какой ваш любимый вид транспорта?', answer: 'Автомобиль'},
+  //     {text: 'Какое ваше любимое время года?', answer: 'Весна'}],
+  //
+  //     [{text: 'Как вы относитесь к плаванию?', answer: 'Обожаю'},
+  //     {text: 'Какой ваш любимый вид домашних животных?', answer: 'Кот'}]
+  //
+  //   ]
+  // }
 
-      [{text: 'Какой ваш любимый цвет?', answer: 'Синий'},
-      {text: 'Какое ваше любимое блюдо?', answer: 'Пицца'}],
-
-      [{text: 'Какие виды спорта вам нравятся?', answer: 'Футбол'},
-      {text: 'Какое ваше любимое время суток?', answer: 'Вечер'}],
-
-      [{text: 'Что вы предпочитаете: кофе или чай?', answer: 'Кофе'},
-      {text: 'Какой ваш любимый фильм?', answer: 'Звездные войны'}],
-
-      [{text: 'Какое ваше любимое музыкальное направление?', answer: 'Рок'},
-      {text: 'Как вы предпочитаете проводить выходные?', answer: 'С друзьями'}],
-
-      [{text: 'Какие виды музыкальных инструментов вы играете?', answer: 'Гитара'},
-      {text: 'Как вы относитесь к путешествиям?', answer: 'Обожаю'}],
-
-      [{text: 'Как вы предпочитаете проводить свободное время?', answer: 'Чтение'},
-      {text: 'Какое ваше любимое место отдыха?', answer: 'Горы'}],
-
-      [{text: 'Как вы относитесь к активным видам отдыха?', answer: 'Положительно'},
-      {text: 'Что вы предпочитаете: книги или фильмы?', answer: 'Фильмы'}],
-
-      [{text: 'Какой ваш любимый вид транспорта?', answer: 'Автомобиль'},
-      {text: 'Какое ваше любимое время года?', answer: 'Весна'}],
-
-      [{text: 'Как вы относитесь к плаванию?', answer: 'Обожаю'},
-      {text: 'Какой ваш любимый вид домашних животных?', answer: 'Кот'}]
-
-    ]
-  }
+  test: Test = {questions: [], variants: []}
 
   currentQuestionIndex: number = 0;
   isTestCompleted: boolean = false;
@@ -76,10 +79,23 @@ export class Test3Component {
   secondCardStatus: boolean = false;
   answers: Variant[] = []
 
-  constructor(private router: Router, private testStatusService: TestStatusService,
+  constructor(private router: Router, private testStatusService: TestStatusService, private testService: TestService,
               private testResultService: TestResultService) {
     this.isTestCompleted = testStatusService.isTestCompleted('test3')
     this.isTestStarted = testStatusService.isTestStarted('test3')
+  }
+
+  ngOnInit(): void {
+    this.getTest();
+  }
+
+  getTest(): void {
+    const testType = 'test3';
+    this.testService.getTestByType(testType)
+      .subscribe(test => {
+        this.test = test;
+        console.log(test)
+      });
   }
 
   get answeredQuestionsCount(): number {
