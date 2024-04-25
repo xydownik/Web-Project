@@ -8,6 +8,7 @@ import {UniversitiesComponent} from "../universities/universities.component";
 import {DisciplineService} from "../discipline.service";
 import {UniversityService} from "../university.service";
 import {FooterComponent} from "../footer/footer.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 @Component({
   selector: 'app-specialties',
   standalone: true,
@@ -16,12 +17,15 @@ import {FooterComponent} from "../footer/footer.component";
     NgIf,
     NgForOf,
     UniversitiesComponent,
-    FooterComponent
+    FooterComponent,
+    ReactiveFormsModule,
+    FormsModule
   ],
   templateUrl: './specialties.component.html',
   styleUrls: ['./specialties.component.css', "../specialty-item/specialty-item.component.css"]
 })
 export class SpecialtiesComponent implements OnInit{
+  searchText: string = ''
   constUnis: University[] = []
   constSpecList: Specialty[] = []
   specialtyList: Specialty[] = []
@@ -58,13 +62,13 @@ export class SpecialtiesComponent implements OnInit{
   }
 
 
-  filterResults(text: string) {
-    if (!text) {
+  filterResults() {
+    if (!this.searchText) {
       this.specialtyList = this.constSpecList;
       return;
     }
     this.specialtyList = this.constSpecList.filter(specialty =>
-      specialty.name.toLowerCase().includes(text.toLowerCase())
+      specialty.name.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
 

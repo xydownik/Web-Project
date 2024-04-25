@@ -71,8 +71,9 @@ export class UniListComponent  implements OnInit{
   }
 
   filterResults(): void {
-    if (!this.searchText.trim()) {
+    if (!this.searchText) {
       this.unis = this.constList;
+      return
     } else {
       this.unis = this.constList.filter(uni =>
         uni.name.toLowerCase().includes(this.searchText.toLowerCase())
