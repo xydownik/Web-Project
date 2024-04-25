@@ -19,5 +19,7 @@ urlpatterns = [
     path('cities/<int:pk>/', city_detail, name='city_detail'),
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
+    path('register/', register, name='register'),
+
 ]
 

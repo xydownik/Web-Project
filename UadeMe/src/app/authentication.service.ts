@@ -20,6 +20,13 @@ export class AuthenticationService {
     )
   }
 
+  register(email:string, username: string, password: string) {
+      return this.http.post<any>(
+        `${this.BASE_URL}/register/`,
+        {email, username, password}
+      )
+  }
+
   getLoggedStatus() : boolean {
     return this.logged
   }
@@ -27,6 +34,8 @@ export class AuthenticationService {
   setLoggedStatus(status: boolean) : void {
     this.logged = status
   }
+
+
 
 
 }
