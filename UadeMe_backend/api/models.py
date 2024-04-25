@@ -46,13 +46,13 @@ class Specialty(models.Model):
     name = models.CharField(max_length=100)
     grants = models.IntegerField()
     description = models.TextField()
-    eduPrograms = models.IntegerField()
     demand = models.CharField(max_length=100)
     unisNum = models.IntegerField()
     general = models.IntegerField()
     quota = models.IntegerField()
     photo = models.URLField()
     disciplines = models.ManyToManyField(Discipline)
+    code = models.CharField(max_length=255, default='asd')
 
     def __str__(self):
         return self.name
@@ -70,9 +70,11 @@ class University(models.Model):
     cost = models.IntegerField()
     uniType = models.CharField(max_length=100)
     location = models.ForeignKey(City, on_delete=models.CASCADE)
-    grantScore = models.IntegerField()
-    paidScore = models.IntegerField()
+    floorScore = models.IntegerField(default=50)
     address = models.TextField()
+    code = models.CharField(max_length=255, default='asd')
+    link = models.URLField(default='https://almau.edu.kz/')
+    description = models.TextField(default='asd')
 
     def __str__(self):
         return self.name

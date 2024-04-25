@@ -21,7 +21,7 @@
       <div class="dropdown-content"  >
         <button (click)="returnAll()">All</button>
         <button *ngFor="let uni of universities"
-                (click)="filterListByUniversity(uni.name)">{{uni.name}}</button>
+                (click)="filterListByUniversity(uni)">{{uni.name}}</button>
 
         <!-- Add more options as needed -->
       </div>
@@ -52,7 +52,7 @@
 
   </section>
 
-  <section class="result_container">
+  <section *ngIf="specialtyList.length" class="result_container">
     <app-specialty-item *ngFor="let specialty of specialtyList"
                         [specialty]="specialty"></app-specialty-item>
   </section>

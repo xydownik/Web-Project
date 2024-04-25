@@ -2,8 +2,8 @@
   <hr>
   <section class="filter_bar">
     <form class="search_tab">
-      <input type="text" class="search_input" placeholder="Filter..." #filter>
-      <img class="search_icon" src="/assets/images/search_icon.png" (click)="filterResults(filter.value)">
+      <input class="search_input" type="text" [(ngModel)]="searchText" (input)="filterResults()" placeholder="Search...">
+      <img class="search_icon" src="/assets/images/search_icon.png" >
     </form>
     <div class="dropdown">
       <button class="dropdown-btn">Специальность</button>
