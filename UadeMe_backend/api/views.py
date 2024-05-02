@@ -1,5 +1,9 @@
+import json
+
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
@@ -207,3 +211,24 @@ def city_detail(request, pk):
         city.delete()
         return Response({'message': 'City deleted successfully'}, status=204)
 
+
+@csrf_exempt
+def register(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        username = data.get('username')
+        email = data.get('email')
+        password = data.get('password')
+
+        if not (username and email and password):
+            return JsonResponse({'error': 'Missing required fields'}, status=400)
+
+        if User.objects.filter(username=username).exists() or User.objects.filter(email=email).exists():
+            return JsonResponse({'error': 'User with this username or email already exists'}, status=400)
+
+        user = User.objects.create_user(username=username, email=email, password=password)
+        user.save()
+
+        return JsonResponse({'success': 'User registered successfully'})
+
+    return JsonResponse({'error': 'Only POST requests are allowed'}, status=405)
